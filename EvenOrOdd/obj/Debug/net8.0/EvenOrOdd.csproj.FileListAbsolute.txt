@@ -1,0 +1,14 @@
+I:\PRJ\Asp .net\Taav\EvenOrOdd\bin\Debug\net8.0\EvenOrOdd.exe
+I:\PRJ\Asp .net\Taav\EvenOrOdd\bin\Debug\net8.0\EvenOrOdd.deps.json
+I:\PRJ\Asp .net\Taav\EvenOrOdd\bin\Debug\net8.0\EvenOrOdd.runtimeconfig.json
+I:\PRJ\Asp .net\Taav\EvenOrOdd\bin\Debug\net8.0\EvenOrOdd.dll
+I:\PRJ\Asp .net\Taav\EvenOrOdd\bin\Debug\net8.0\EvenOrOdd.pdb
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.GeneratedMSBuildEditorConfig.editorconfig
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.AssemblyInfoInputs.cache
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.AssemblyInfo.cs
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.csproj.CoreCompileInputs.cache
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.dll
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\refint\EvenOrOdd.dll
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.pdb
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\EvenOrOdd.genruntimeconfig.cache
+I:\PRJ\Asp .net\Taav\EvenOrOdd\obj\Debug\net8.0\ref\EvenOrOdd.dll

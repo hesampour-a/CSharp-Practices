@@ -1,0 +1,14 @@
+I:\PRJ\Asp .net\Taav\Combined\bin\Debug\net8.0\Combined.exe
+I:\PRJ\Asp .net\Taav\Combined\bin\Debug\net8.0\Combined.deps.json
+I:\PRJ\Asp .net\Taav\Combined\bin\Debug\net8.0\Combined.runtimeconfig.json
+I:\PRJ\Asp .net\Taav\Combined\bin\Debug\net8.0\Combined.dll
+I:\PRJ\Asp .net\Taav\Combined\bin\Debug\net8.0\Combined.pdb
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.GeneratedMSBuildEditorConfig.editorconfig
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.AssemblyInfoInputs.cache
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.AssemblyInfo.cs
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.csproj.CoreCompileInputs.cache
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.dll
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\refint\Combined.dll
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.pdb
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\Combined.genruntimeconfig.cache
+I:\PRJ\Asp .net\Taav\Combined\obj\Debug\net8.0\ref\Combined.dll
