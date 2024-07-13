@@ -1,1 +1,1 @@
-some practice with C#
+Some C# Basic Practice Projects
