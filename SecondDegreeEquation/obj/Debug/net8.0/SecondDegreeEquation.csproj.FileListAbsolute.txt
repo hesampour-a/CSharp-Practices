@@ -1,0 +1,15 @@
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\bin\Debug\net8.0\SecondDegreeEquation.exe
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\bin\Debug\net8.0\SecondDegreeEquation.deps.json
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\bin\Debug\net8.0\SecondDegreeEquation.runtimeconfig.json
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\bin\Debug\net8.0\SecondDegreeEquation.dll
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\bin\Debug\net8.0\SecondDegreeEquation.pdb
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.GeneratedMSBuildEditorConfig.editorconfig
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.AssemblyInfoInputs.cache
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.AssemblyInfo.cs
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.csproj.CoreCompileInputs.cache
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.sourcelink.json
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.dll
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\refint\SecondDegreeEquation.dll
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.pdb
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\SecondDegreeEquation.genruntimeconfig.cache
+I:\PRJ\Asp .net\Taav\SecondDegreeEquation\obj\Debug\net8.0\ref\SecondDegreeEquation.dll
