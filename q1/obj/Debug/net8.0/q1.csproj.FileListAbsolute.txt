@@ -1,0 +1,15 @@
+I:\PRJ\Asp .net\Taav\q1\bin\Debug\net8.0\q1.exe
+I:\PRJ\Asp .net\Taav\q1\bin\Debug\net8.0\q1.deps.json
+I:\PRJ\Asp .net\Taav\q1\bin\Debug\net8.0\q1.runtimeconfig.json
+I:\PRJ\Asp .net\Taav\q1\bin\Debug\net8.0\q1.dll
+I:\PRJ\Asp .net\Taav\q1\bin\Debug\net8.0\q1.pdb
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.GeneratedMSBuildEditorConfig.editorconfig
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.AssemblyInfoInputs.cache
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.AssemblyInfo.cs
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.csproj.CoreCompileInputs.cache
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.sourcelink.json
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.dll
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\refint\q1.dll
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.pdb
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\q1.genruntimeconfig.cache
+I:\PRJ\Asp .net\Taav\q1\obj\Debug\net8.0\ref\q1.dll

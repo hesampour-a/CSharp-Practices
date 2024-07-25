@@ -17,7 +17,6 @@ Houses[0, 3] = "MortgageRate"; //رهن
 Houses[0, 4] = "RentRate";
 Houses[0, 5] = "Capacity";
 
-
 string[,] Contracts = new string[2, 7];
 Contracts[0, 0] = "HouseId";
 Contracts[0, 1] = "TenantId";
@@ -27,12 +26,9 @@ Contracts[0, 4] = "MortgageRate";
 Contracts[0, 5] = "RentRate";
 Contracts[0, 6] = "IsPaidOff";
 
-
 string[,] Incomes = new string[1, 2];
 Incomes[0, 0] = "ContractId";
 Incomes[0, 1] = "Amount";
-
-
 
 Contracts[1, 0] = "1";
 Contracts[1, 1] = "1";
@@ -57,11 +53,7 @@ Users[2, 0] = "Ahmed";
 Users[2, 1] = "123456789";
 Users[2, 2] = "2";
 
-
 Run();
-
-
-
 
 void Run()
 {
@@ -69,32 +61,35 @@ void Run()
     while (continiue)
     {
 
-        Console.WriteLine("1. Add New Contract");
-        Console.WriteLine("2. Add New House");
-        Console.WriteLine("3. Add New User");
-        Console.WriteLine("4. Show All Contracts");
-        Console.WriteLine("5. Show All Houses");
-        Console.WriteLine("6. Show All Users");
-        Console.WriteLine("7. Search House By Address");
-        Console.WriteLine("8. Search House By Meterage");
-        Console.WriteLine("9. Search House By Mortgage Rate");
-        Console.WriteLine("10. Search House By Rent Rate");
-        Console.WriteLine("11. Income Report");
-        Console.WriteLine("12. Exit");
+        Print("1. Add New Contract");
+        Print("2. Add New House");
+        Print("3. Add New User");
+        Print("4. Show All Contracts");
+        Print("5. Show All Houses");
+        Print("6. Show All Users");
+        Print("7. Search House By Address");
+        Print("8. Search House By Meterage");
+        Print("9. Search House By Mortgage Rate");
+        Print("10. Search House By Rent Rate");
+        Print("11. Income Report");
+        Print("12. Exit");
 
         int choice = GetNumberFromUser("Insert Your Choice Number :");
 
         switch (choice)
         {
             case 1:
-                Contracts = AddNewItem(Contracts, "Contract", ContractValidator);
+                string[] newContract = GetNewItemFromUser(Contracts, "Contract", ContractValidator);
+                Contracts = AddNewItemToArray(Contracts, newContract);
                 Incomes = AddIncomeFromLastContract(Contracts, Incomes);
                 break;
             case 2:
-                Houses = AddNewItem(Houses, "House", HouseValidator);
+                string[] newHouse = GetNewItemFromUser(Houses, "House", HouseValidator);
+                Houses = AddNewItemToArray(Houses, newHouse);
                 break;
             case 3:
-                Users = AddNewItem(Users, "User", null);
+                string[] newUser = GetNewItemFromUser(Users, "User", null);
+                Users = AddNewItemToArray(Users, newUser);
                 break;
             case 4:
                 ShowAllItems(Contracts, "Contract");
@@ -106,16 +101,20 @@ void Run()
                 ShowAllItems(Users, "User");
                 break;
             case 7:
-                SearchHouseByAddress(Houses);
+                string name = GetStringFromUser("Insert Address or a part of Address :");
+                SearchHouseByAddress(Houses, name);
                 break;
             case 8:
-                SearchHouseByMeterage(Houses);
+                BigInteger meterage = GetNumberFromUser("Insert Meterage :");
+                SearchHouseByMeterage(Houses, meterage);
                 break;
             case 9:
-                SearchHouseByMortgageRate(Houses);
+                BigInteger mortgageRate = GetNumberFromUser("Insert Mortgage Rate :");
+                SearchHouseByMortgageRate(Houses, mortgageRate);
                 break;
             case 10:
-                SearchHouseByRentRate(Houses);
+                BigInteger rentRate = GetNumberFromUser("Insert Mortgage Rate :");
+                SearchHouseByRentRate(Houses, rentRate);
                 break;
             case 11:
                 ShowAllItems(Incomes, "Income");
@@ -126,7 +125,7 @@ void Run()
             default:
                 break;
         }
-        Console.WriteLine("Press Any Key To Continue");
+        Print("Press Any Key To Continue");
         Console.ReadLine();
     }
 
@@ -138,7 +137,7 @@ void ShowAllItems(string[,] Items, string ItemName)
 {
     if (Items.Length <= 1)
     {
-        Console.WriteLine($"there is no {ItemName}");
+        Print($"there is no {ItemName}");
     }
     for (int i = 1; i < Items.GetLength(0); i++)
     {
@@ -154,36 +153,31 @@ void ShowAllItems(string[,] Items, string ItemName)
 
 
 
-string[,] AddNewItem(string[,] Items, string ItemName, Func<string[], bool>? Validator)
+string[,] AddNewItemToArray(string[,] Items, string[] newItem)
 {
     string[,] newItems = new string[Items.GetLength(0) + 1, Items.GetLength(1)];
     newItems = CopyArray(Items, newItems);
 
-    string[] newItem = GetNewItem(Items, ItemName, Validator);
-
     for (int i = 0; i < Items.GetLength(1); i++)
-    {
         newItems[newItems.GetLength(0) - 1, i] = newItem[i];
-    }
+
     return newItems;
 }
 
-string[] GetNewItem(string[,] Items, string ItemName, Func<string[], bool>? Validator)
+string[] GetNewItemFromUser(string[,] Items, string ItemName, Func<string[], bool>? Validator)
 {
     string[] newItem = new string[Items.GetLength(1)];
     bool IsDataValid = false;
     while (!IsDataValid)
     {
         for (int i = 0; i < Items.GetLength(1); i++)
-        {
             newItem[i] = GetStringFromUser($"insert new {ItemName} " + Items[0, i]);
-        }
+
         IsDataValid = Validator == null ? true : Validator(newItem);
 
         if (!IsDataValid)
-        {
-            Console.WriteLine("Data is not valid");
-        }
+            Print("Data is not valid");
+
     }
 
     return newItem;
@@ -196,13 +190,13 @@ string GetStringFromUser(string message)
     string inputText = "";
     while (!trueText)
     {
-        Console.WriteLine(message);
+        Print(message);
         inputText = Console.ReadLine()!;
         trueText = true;
 
         if (inputText == "")
         {
-            Console.WriteLine("Enter a correct text");
+            Print("Enter a correct text");
             trueText = false;
         }
     }
@@ -215,7 +209,7 @@ string[,] CopyArray(string[,] sourceArray, string[,] destinationArray)
 {
     if (destinationArray.Length < sourceArray.Length)
     {
-        Console.WriteLine("destination array is not large enough");
+        Print("destination array is not large enough");
         return sourceArray;
     }
     for (int i = 0; i < sourceArray.GetLength(0); i++)
@@ -235,14 +229,14 @@ bool HouseValidator(string[] newItem)
 
     if (mortgageRate > 30000000)
     {
-        Console.WriteLine("MortgageRate must be less than 30 Million");
+        Print("MortgageRate must be less than 30 Million");
         return false;
     }
     BigInteger.TryParse(newItem[4], out BigInteger rentRate);
 
     if (rentRate > 2000000)
     {
-        Console.WriteLine("RentRate must be less than 2 Million");
+        Print("RentRate must be less than 2 Million");
         return false;
     }
     return true;
@@ -256,49 +250,60 @@ bool ContractValidator(string[] newContractItem)
 
     string[] house = new string[Houses.GetLength(1)];
     for (int i = 0; i < Houses.GetLength(1); i++)
-    {
         house[i] = Houses[int.Parse(newContractItem[0]), i];
+
+
+    DateTime NewContractStartDate = DateTime.Parse(newContractItem[2]);
+    DateTime NewContractEndDate = DateTime.Parse(newContractItem[2]);
+
+    if (NewContractStartDate < CurrentDate)
+    {
+        Print("Contract start date must be after current date");
+        return false;
+    }
+    if (NewContractEndDate < NewContractStartDate)
+    {
+        Print("Contract end date must be after start date");
+        return false;
     }
 
-    if (DateTime.Parse(newContractItem[2]) < CurrentDate)
+    int tenantFamilyPopulation = int.Parse(Users[int.Parse(newContractItem[1]), 2]);
+    int houseCapacity = int.Parse(house[5]);
+
+    if (tenantFamilyPopulation > houseCapacity)
     {
-        Console.WriteLine("Contract start date must be greater than current date");
-        return false;
-    }
-    if (DateTime.Parse(newContractItem[3]) < DateTime.Parse(newContractItem[2]))
-    {
-        Console.WriteLine("Contract end date must be greater than start date");
+        Print("Family Population must not be grater than House capacity");
         return false;
     }
 
-    if (int.Parse(Users[int.Parse(newContractItem[1]), 2]) > int.Parse(house[5]))
-    {
-        Console.WriteLine("Family Population must not be grater than House capacity");
-        return false;
-    }
+
 
     for (int k = 0; k < Contracts.GetLength(0); k++)
     {
-        if (Contracts[k, 1] == newContractItem[1])
+        if (Contracts[k, 1] == newContractItem[1])  //TenantId
         {
-            if (Contracts[k, 6] == "false")
+            if (Contracts[k, 6] == "false")             //IsPaidOff
             {
-                Console.WriteLine($"User Must pay off Contract #{k} first");
+                Print($"User Must pay off Contract #{k} first");
                 return false;
             }
         }
     }
 
-
-    if (int.Parse(newContractItem[4]) >= int.Parse(house[3]))
+    int newContractMortgageRate = int.Parse(newContractItem[4]);
+    int houseMortgageRate = int.Parse(house[3]);
+    if (newContractMortgageRate > houseMortgageRate)
     {
-        Console.WriteLine("Contract Mortgage rate must be less than house Mortgage rate");
+        Print("Contract Mortgage rate must be less than house Mortgage rate");
         return false;
     }
 
-    if (int.Parse(newContractItem[5]) >= int.Parse(house[4]))
+
+    int newContractRentRate = int.Parse(newContractItem[5]);
+    int houseRentRate = int.Parse(house[4]);
+    if (newContractRentRate > houseRentRate)
     {
-        Console.WriteLine("Contract rent rate must be less than house rent rate");
+        Print("Contract rent rate must be less than house rent rate");
         return false;
     }
 
@@ -307,9 +312,9 @@ bool ContractValidator(string[] newContractItem)
     {
         if (newContractItem[0] == Contracts[j, 0])
         {
-            if (IsBetween(DateTime.Parse(newContractItem[2]), DateTime.Parse(Contracts[j, 2]), DateTime.Parse(Contracts[j, 3])) || IsBetween(DateTime.Parse(newContractItem[2]), DateTime.Parse(Contracts[j, 2]), DateTime.Parse(Contracts[j, 3])))
+            if (IsBetweenDate(NewContractStartDate, DateTime.Parse(Contracts[j, 2]), DateTime.Parse(Contracts[j, 3])) || IsBetweenDate(NewContractEndDate, DateTime.Parse(Contracts[j, 2]), DateTime.Parse(Contracts[j, 3])))
             {
-                Console.WriteLine("House Is Not Available in this time");
+                Print("House Is Not Available in this time");
                 return false;
             }
         }
@@ -317,10 +322,8 @@ bool ContractValidator(string[] newContractItem)
     return true;
 }
 
-bool IsBetween(DateTime input, DateTime date1, DateTime date2)
-{
-    return (input > date1 && input < date2);
-}
+bool IsBetweenDate(DateTime input, DateTime date1, DateTime date2) => (input >= date1 && input <= date2);
+
 
 int GetNumberFromUser(string message)
 {
@@ -328,12 +331,12 @@ int GetNumberFromUser(string message)
     bool canParseToInt = false;
     while (!canParseToInt)
     {
-        Console.WriteLine(message);
+        Print(message);
         canParseToInt = int.TryParse(Console.ReadLine(), out int result);
         if (!canParseToInt || result < 0)
         {
             canParseToInt = false;
-            Console.WriteLine("Wrong Input");
+            Print("Wrong Input");
         }
         number = result;
     }
@@ -341,10 +344,9 @@ int GetNumberFromUser(string message)
 }
 
 
-void SearchHouseByAddress(string[,] Items)
+void SearchHouseByAddress(string[,] Items, string name)
 {
     bool found = false;
-    string name = GetStringFromUser("Insert Address or a part of Address :");
     for (int i = 0; i < Items.GetLength(0); i++)
     {
         if (Items[i, 1].Contains(name))
@@ -354,25 +356,22 @@ void SearchHouseByAddress(string[,] Items)
         }
     }
     if (!found)
-    {
-        Console.WriteLine("Not found");
-    }
+        Print("Not found");
 }
 
 void ShowItemById(int itemId, string[,] Items)
 {
     Console.Write("Item # " + itemId + " : ");
     for (int j = 0; j < Items.GetLength(1); j++)
-    {
         Console.Write(Items[0, j] + " : " + Items[itemId, j] + "  *");
-    }
+
     Console.WriteLine();
 }
 
-void SearchHouseByMeterage(string[,] Items)
+void SearchHouseByMeterage(string[,] Items, BigInteger meterage)
 {
     bool found = false;
-    BigInteger meterage = GetNumberFromUser("Insert Meterage :");
+
     for (int i = 1; i < Items.GetLength(0); i++)
     {
         if (IsNumberInRange(meterage, BigInteger.Parse(Items[i, 2]) - 20, BigInteger.Parse(Items[i, 2]) + 20))
@@ -382,15 +381,13 @@ void SearchHouseByMeterage(string[,] Items)
         }
     }
     if (!found)
-    {
-        Console.WriteLine("Not found");
-    }
+        Print("Not found");
+
 }
 
-void SearchHouseByMortgageRate(string[,] Items)
+void SearchHouseByMortgageRate(string[,] Items, BigInteger mortgageRate)
 {
     bool found = false;
-    BigInteger mortgageRate = GetNumberFromUser("Insert Mortgage Rate :");
     for (int i = 1; i < Items.GetLength(0); i++)
     {
         if (IsNumberInRange(mortgageRate, BigInteger.Parse(Items[i, 3]) - 5000000, BigInteger.Parse(Items[i, 3]) + 5000000))
@@ -400,15 +397,13 @@ void SearchHouseByMortgageRate(string[,] Items)
         }
     }
     if (!found)
-    {
-        Console.WriteLine("Not found");
-    }
+        Print("Not found");
+
 }
 
-void SearchHouseByRentRate(string[,] Items)
+void SearchHouseByRentRate(string[,] Items, BigInteger rentRate)
 {
     bool found = false;
-    BigInteger rentRate = GetNumberFromUser("Insert Mortgage Rate :");
     for (int i = 1; i < Items.GetLength(0); i++)
     {
         if (IsNumberInRange(rentRate, BigInteger.Parse(Items[i, 4]) - 1000000, BigInteger.Parse(Items[i, 4]) + 1000000))
@@ -418,9 +413,8 @@ void SearchHouseByRentRate(string[,] Items)
         }
     }
     if (!found)
-    {
-        Console.WriteLine("Not found");
-    }
+        Print("Not found");
+
 }
 
 
@@ -436,8 +430,13 @@ string[,] AddIncomeFromLastContract(string[,] Contracts, string[,] Incomes)
     newIncomes = CopyArray(Incomes, newIncomes);
 
 
-    newIncomes[Incomes.GetLength(0) - 1, 0] = (Contracts.GetLength(0) - 1).ToString();
-    newIncomes[Incomes.GetLength(0) - 1, 1] = (int.Parse(Contracts[Contracts.GetLength(0) - 1, 5]) * 1 / 100).ToString();
+    newIncomes[newIncomes.GetLength(0) - 1, 0] = (Contracts.GetLength(0) - 1).ToString();
+    newIncomes[newIncomes.GetLength(0) - 1, 1] = (int.Parse(Contracts[Contracts.GetLength(0) - 1, 5]) * 1 / 100).ToString();
 
     return newIncomes;
+}
+
+void Print(string message)
+{
+    Console.WriteLine(message);
 }

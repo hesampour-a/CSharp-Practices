@@ -12,3 +12,4 @@ I:\PRJ\Asp .net\Taav\Play Ground\obj\Debug\net8.0\refint\Play Ground.dll
 I:\PRJ\Asp .net\Taav\Play Ground\obj\Debug\net8.0\Play Ground.pdb
 I:\PRJ\Asp .net\Taav\Play Ground\obj\Debug\net8.0\Play Ground.genruntimeconfig.cache
 I:\PRJ\Asp .net\Taav\Play Ground\obj\Debug\net8.0\ref\Play Ground.dll
+I:\PRJ\Asp .net\Taav\Play Ground\obj\Debug\net8.0\Play Ground.sourcelink.json

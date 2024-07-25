@@ -1,0 +1,15 @@
+I:\PRJ\Asp .net\Taav\Mountaineering\bin\Debug\net8.0\Mountaineering.exe
+I:\PRJ\Asp .net\Taav\Mountaineering\bin\Debug\net8.0\Mountaineering.deps.json
+I:\PRJ\Asp .net\Taav\Mountaineering\bin\Debug\net8.0\Mountaineering.runtimeconfig.json
+I:\PRJ\Asp .net\Taav\Mountaineering\bin\Debug\net8.0\Mountaineering.dll
+I:\PRJ\Asp .net\Taav\Mountaineering\bin\Debug\net8.0\Mountaineering.pdb
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.GeneratedMSBuildEditorConfig.editorconfig
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.AssemblyInfoInputs.cache
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.AssemblyInfo.cs
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.csproj.CoreCompileInputs.cache
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.sourcelink.json
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.dll
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\refint\Mountaineering.dll
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.pdb
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\Mountaineering.genruntimeconfig.cache
+I:\PRJ\Asp .net\Taav\Mountaineering\obj\Debug\net8.0\ref\Mountaineering.dll
