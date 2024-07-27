@@ -1,12 +1,15 @@
 ﻿using Play_Ground;
 
-Test test = new Test
-{
-    Id = 1,
-    Name = "Ali"
-};
+var persia = new Car("persia");
+
+persia.HandBreakEngaged = false;
+
+Console.WriteLine(persia.Drive());
+Console.WriteLine(persia.Brake());
 
 
+persia.HandBreakEngaged = true;
 
 
-Console.WriteLine(test);
+Console.WriteLine(persia.Drive());
+Console.WriteLine(persia.Brake());

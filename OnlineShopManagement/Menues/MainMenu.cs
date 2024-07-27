@@ -10,7 +10,6 @@ public class MainMenu
     public Database database { get; set; } = new();
 
 
-
     public void Run()
     {
         while (true)
