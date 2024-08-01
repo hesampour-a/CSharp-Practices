@@ -1,10 +1,12 @@
-namespace GussNumberGame.Entities;
+namespace GuessNumberGame.Entities;
 
-public class GussNumber(UI Ui)
+public class GuessNumber(IUi Ui)
 {
     private int GoalNumber { get; set; } = new Random().Next(1, 100);
     public int TryCount { get; private set; } = 0;
     public bool IsWin { get; private set; } = false;
+
+
 
 
     void Play()
@@ -30,4 +32,6 @@ public class GussNumber(UI Ui)
             Play();
         }
     }
+
+
 }

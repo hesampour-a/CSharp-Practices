@@ -1,6 +1,6 @@
-﻿using GussNumberGame.Entities;
+﻿using GuessNumberGame.Entities;
 
-var game = new GussNumber(new UI());
+var game = new GuessNumber(new ConsoleUi());
 
 
 game.Start();
