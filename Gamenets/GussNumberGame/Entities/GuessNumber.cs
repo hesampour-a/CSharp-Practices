@@ -1,7 +1,7 @@
 
 using Common.Interfaces;
 
-namespace GuessNumberGame.Entities;
+namespace GussNumberGame.Entities;
 
 public class GuessNumber(IUi Ui) : Game
 {
@@ -10,7 +10,7 @@ public class GuessNumber(IUi Ui) : Game
     public bool IsWin { get; private set; } = false;
     public override string Name { get; set; } = "GuessNumber";
 
-   public override void Play()
+    public override void Play()
     {
         while (!IsWin)
         {
@@ -18,7 +18,7 @@ public class GuessNumber(IUi Ui) : Game
         }
     }
 
-     void Start()
+    void Start()
     {
         TryCount++;
         int number = Ui.GetNumberFromUser();
@@ -34,5 +34,5 @@ public class GuessNumber(IUi Ui) : Game
         }
     }
 
-    
+
 }

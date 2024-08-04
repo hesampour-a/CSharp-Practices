@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GuessWordGame\GuessWordGame.csproj" />
     <ProjectReference Include="..\GussNumberGame\GussNumberGame.csproj" />
-    <ProjectReference Include="..\UIs\Common.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
 </Project>

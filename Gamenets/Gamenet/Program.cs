@@ -1,8 +1,8 @@
 ﻿using Gamenet.Entities;
-using GuessNumberGame.Entities;
 using GuessWordGame.Entities;
 using Common.Entities;
 using Common.Interfaces;
+using GussNumberGame.Entities;
 
 
 var consoleUi = new ConsoleUi();
