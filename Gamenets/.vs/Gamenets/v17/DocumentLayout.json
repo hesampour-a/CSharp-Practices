@@ -3,32 +3,36 @@
   "WorkspaceRootPath": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|solutionrelative:gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gamenet\\entities\\gameclub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|solutionrelative:gamenet\\entities\\gameclub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\guesswordgame\\entities\\guessword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|solutionrelative:guesswordgame\\entities\\guessword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\entities\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\entities\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gamenet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|solutionrelative:gamenet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gamenet\\entities\\gameclub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|solutionrelative:gamenet\\entities\\gameclub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gussnumbergame\\gussnumbergame.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|solutionrelative:gussnumbergame\\gussnumbergame.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\interfaces\\iui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\interfaces\\iui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\guesswordgame\\guesswordgame.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|solutionrelative:guesswordgame\\guesswordgame.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\guesswordgame\\entities\\guessword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|solutionrelative:guesswordgame\\entities\\guessword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gamenet\\gamenet.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|solutionrelative:gamenet\\gamenet.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|solutionrelative:gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\interfaces\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\interfaces\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,68 +54,75 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Common.csproj",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Common.csproj",
+              "RelativeDocumentMoniker": "Common\\Common.csproj",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Common.csproj",
+              "RelativeToolTip": "Common\\Common.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-05T04:41:55.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUi.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Interfaces\\IUi.cs",
+              "RelativeDocumentMoniker": "Common\\Interfaces\\IUi.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Interfaces\\IUi.cs",
+              "RelativeToolTip": "Common\\Interfaces\\IUi.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T04:36:50.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConsoleUi.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Entities\\ConsoleUi.cs",
+              "RelativeDocumentMoniker": "Common\\Entities\\ConsoleUi.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Entities\\ConsoleUi.cs",
+              "RelativeToolTip": "Common\\Entities\\ConsoleUi.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T04:34:31.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Game.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Interfaces\\Game.cs",
+              "RelativeDocumentMoniker": "Common\\Interfaces\\Game.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Interfaces\\Game.cs",
+              "RelativeToolTip": "Common\\Interfaces\\Game.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T04:18:36.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GuessNumber.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GussNumberGame\\Entities\\GuessNumber.cs",
               "RelativeDocumentMoniker": "GussNumberGame\\Entities\\GuessNumber.cs",
               "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GussNumberGame\\Entities\\GuessNumber.cs",
               "RelativeToolTip": "GussNumberGame\\Entities\\GuessNumber.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T12:05:11.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T12:05:11.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "GuessWord.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GuessWordGame\\Entities\\GuessWord.cs",
               "RelativeDocumentMoniker": "GuessWordGame\\Entities\\GuessWord.cs",
               "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GuessWordGame\\Entities\\GuessWord.cs",
               "RelativeToolTip": "GuessWordGame\\Entities\\GuessWord.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T12:05:05.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GussNumberGame",
-              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GussNumberGame\\GussNumberGame.csproj",
-              "RelativeDocumentMoniker": "GussNumberGame\\GussNumberGame.csproj",
-              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GussNumberGame\\GussNumberGame.csproj",
-              "RelativeToolTip": "GussNumberGame\\GussNumberGame.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-04T12:04:15.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GuessWordGame",
-              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GuessWordGame\\GuessWordGame.csproj",
-              "RelativeDocumentMoniker": "GuessWordGame\\GuessWordGame.csproj",
-              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GuessWordGame\\GuessWordGame.csproj",
-              "RelativeToolTip": "GuessWordGame\\GuessWordGame.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-04T12:04:07.448Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Gamenet",
-              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Gamenet.csproj",
-              "RelativeDocumentMoniker": "Gamenet\\Gamenet.csproj",
-              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Gamenet.csproj",
-              "RelativeToolTip": "Gamenet\\Gamenet.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-04T12:00:46.6Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T12:05:05.413Z"
             },
             {
               "$type": "Document",
@@ -121,20 +132,19 @@
               "RelativeDocumentMoniker": "Gamenet\\Program.cs",
               "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Program.cs",
               "RelativeToolTip": "Gamenet\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAxwBIAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T16:40:33.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T16:40:33.008Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "GameClub.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Entities\\GameClub.cs",
               "RelativeDocumentMoniker": "Gamenet\\Entities\\GameClub.cs",
               "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Entities\\GameClub.cs",
               "RelativeToolTip": "Gamenet\\Entities\\GameClub.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAABwAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T16:40:26.996Z",
               "EditorCaption": ""

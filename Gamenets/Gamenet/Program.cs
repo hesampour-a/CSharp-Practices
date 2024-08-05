@@ -9,9 +9,11 @@ var consoleUi = new ConsoleUi();
 List<Game> games = new List<Game>();
 Game guessNumber = new GuessNumber(consoleUi);
 Game guessWord = new GuessWord(consoleUi);
-games.Add(guessNumber);
-games.Add(guessWord);
+
+consoleUi.Print("Enter your name: ");
 
 
-var gameNet = new GameClub(games, consoleUi);
+var gameNet = new GameClub(games, consoleUi ,consoleUi.GetString());
+
+gameNet.AddGame(guessNumber, guessWord);
 gameNet.ShowMenu();

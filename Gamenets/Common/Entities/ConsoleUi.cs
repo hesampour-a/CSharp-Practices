@@ -20,4 +20,10 @@ public class ConsoleUi : IUi
     {
         Console.WriteLine(message);
     }
+    public void Clear()
+    {
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+        Console.Clear();
+    }
 }

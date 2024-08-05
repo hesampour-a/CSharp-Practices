@@ -3,12 +3,15 @@ using Common.Interfaces;
 
 namespace GuessWordGame.Entities;
 
-public class GuessWord(IUi ui) : Game
+public class GuessWord(
+    IUi ui,
+    string description = "this is a guss word game between 5 words i defiend") : Game
 {
     private string[] words { get; set; } = { "apple","hello","dotnet" , "pc" , "car" };
     private int randomIndex { get; set; } = new Random().Next(0, 4);
     private bool IsWin { get; set; } = false;
-    public override string Name { get; set; } = "GuessWord";
+    public override string Name { get; init; } = "GuessWord";
+    public override string Description { get ; init; } = description;
 
     void Start()
     {
