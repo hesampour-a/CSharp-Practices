@@ -2,14 +2,12 @@
 
 namespace Gamenet.Entities;
 
-public class GameClub(List<Game?> games, IUi ui, string playerName)
+public class GameClub(List<Game> games, IUi ui, string playerName)
 {
-    public string PlayerName { get; set; } = playerName;
-    private List<Game?> _games = games;
 
     public void ShowMenu()
     {
-        if (_games.Count == 0)
+        if (games.Count == 0)
         {
             ui.Print("No games available");
             return;
@@ -17,7 +15,7 @@ public class GameClub(List<Game?> games, IUi ui, string playerName)
 
         while (true)
         {
-            ui.Print($"Dear {PlayerName} Choose an option:");
+            ui.Print($"Dear {playerName} Choose an option:");
             ui.Print("1. Play games");
             ui.Print("2. See Description of games");
             ui.Print("3. Exit");
@@ -27,26 +25,11 @@ public class GameClub(List<Game?> games, IUi ui, string playerName)
             {
                 case 1:
                     ShowGames();
-                    try
-                    {
-                    GetUserChoice()!.Play();
-                    }
-                    catch (Exception e)
-                    {
-                        ui.Print("Game not found");
-                    }
-                    
+                    GetUserChoice().Play();
                     break;
                 case 2:
                     ShowGames();
-                    try
-                    {
-                    ui.Print(GetUserChoice()!.Description);
-                    }
-                    catch (Exception e)
-                    {
-                        ui.Print("Game not found");
-                    }
+                    ui.Print(GetUserChoice().Description);
                     break;
                 case 3:
                     return;
@@ -58,22 +41,26 @@ public class GameClub(List<Game?> games, IUi ui, string playerName)
     }
     void ShowGames()
     {
-        for (int i = 0; i < _games.Count; i++)
+        for (int i = 0; i < games.Count; i++)
         {
-            ui.Print($"{i + 1}. {_games[i]!.Name}");
+            ui.Print($"{i + 1}. {games[i]!.Name}");
         }
     }
     Game GetUserChoice()
     {
-        ui.Print("Enter game number: ");
 
+        int userChoice = 0;
+        do
+        {
+            ui.Print("Choose a game: ");
+            userChoice = ui.GetNumberFromUser();
+        } while (!(userChoice > 0 && userChoice <= games.Count));
 
-        return _games[ui.GetNumberFromUser() - 1];
-               
+        return games[userChoice - 1];
     }
 
     public void AddGame(params Game[] game)
     {
-        _games.AddRange(game);
+        games.AddRange(game);
     }
 }
