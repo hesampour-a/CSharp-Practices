@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|solutionrelative:gamenet\\entities\\gameclub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\entities\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\entities\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|solutionrelative:gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\entities\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\entities\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,20 +23,12 @@
       "RelativeMoniker": "D:0:0:{825FA659-819B-45DB-A322-9FA423E77D3C}|Gamenet\\Gamenet.csproj|solutionrelative:gamenet\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\interfaces\\iui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|solutionrelative:common\\interfaces\\iui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\guesswordgame\\entities\\guessword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{750AEE55-480F-47B9-AE4F-0845D03487BB}|GuessWordGame\\GuessWordGame.csproj|solutionrelative:guesswordgame\\entities\\guessword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|i:\\prj\\asp .net\\taav\\gamenets\\gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BC971DC-C3FB-4407-A7AC-0EE1FDDE7FB9}|GussNumberGame\\GussNumberGame.csproj|solutionrelative:gussnumbergame\\entities\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{281D6878-8A78-41E5-AE96-5901F59212CE}|Common\\Common.csproj|i:\\prj\\asp .net\\taav\\gamenets\\common\\interfaces\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,19 +54,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Common.csproj",
-              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Common.csproj",
-              "RelativeDocumentMoniker": "Common\\Common.csproj",
-              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Common.csproj",
-              "RelativeToolTip": "Common\\Common.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-05T04:41:55.005Z"
+              "DocumentIndex": 1,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Entities\\Menu.cs",
+              "RelativeDocumentMoniker": "Common\\Entities\\Menu.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Entities\\Menu.cs",
+              "RelativeToolTip": "Common\\Entities\\Menu.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAADkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T14:55:53.44Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IUi.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Interfaces\\IUi.cs",
               "RelativeDocumentMoniker": "Common\\Interfaces\\IUi.cs",
@@ -78,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ConsoleUi.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Common\\Entities\\ConsoleUi.cs",
               "RelativeDocumentMoniker": "Common\\Entities\\ConsoleUi.cs",
@@ -102,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "GuessNumber.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GussNumberGame\\Entities\\GuessNumber.cs",
               "RelativeDocumentMoniker": "GussNumberGame\\Entities\\GuessNumber.cs",
@@ -110,11 +111,12 @@
               "RelativeToolTip": "GussNumberGame\\Entities\\GuessNumber.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T12:05:11.885Z"
+              "WhenOpened": "2024-08-04T12:05:11.885Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GuessWord.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\GuessWordGame\\Entities\\GuessWord.cs",
               "RelativeDocumentMoniker": "GuessWordGame\\Entities\\GuessWord.cs",
@@ -126,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Program.cs",
               "RelativeDocumentMoniker": "Gamenet\\Program.cs",
@@ -144,7 +146,7 @@
               "RelativeDocumentMoniker": "Gamenet\\Entities\\GameClub.cs",
               "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Gamenets\\Gamenet\\Entities\\GameClub.cs",
               "RelativeToolTip": "Gamenet\\Entities\\GameClub.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAA6AAAA",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T16:40:26.996Z",
               "EditorCaption": ""
