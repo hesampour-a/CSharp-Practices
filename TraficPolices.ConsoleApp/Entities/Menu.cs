@@ -35,6 +35,7 @@ public class Menu(Dictionary<string, Action> menuItems, IUi ui)
 
     public void Start()
     {
+        ui.Clear();
         int menuChice = 0;
         do
         {

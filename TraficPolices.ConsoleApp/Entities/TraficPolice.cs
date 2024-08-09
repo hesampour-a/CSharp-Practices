@@ -17,6 +17,7 @@ public class TraficPolice()
         var road = Database.Roads.Find(r => r.Id == movement.RoadId);
         var car = Database.Cars.Find(c => c.Plaque == movement.CarPlaque);
         var speedLimit = road.SpeedLimits.Find(s => s.CarType == car.CarType);
+
         if (speedLimit.ValidSpeed >= movement.Speed)
             return null;
 
@@ -60,6 +61,7 @@ public class TraficPolice()
 
     public void ShowMainMenu()
     {
+
         var menuItems = new Dictionary<string, Action>();
         menuItems.Add("Add New Car", Database.AddCar);
         menuItems.Add("Add New Road", Database.AddRoad);

@@ -58,7 +58,7 @@ public class ConsoleUi : IUi
         Console.WriteLine("Car Types:");
         for (int i = 0; i < names.Length; i++)
         {
-            Console.WriteLine(i + 1 + ": " + names[i]);
+            Console.WriteLine((i + 1) + ": " + names[i]);
         }
     }
 
@@ -68,7 +68,7 @@ public class ConsoleUi : IUi
 
         return new Car
         {
-            CarType = (CarType)GetIntegerFromUser("Enter CarType:"),
+            CarType = (CarType)GetIntegerFromUser(" "),
             Plaque = GetStringFromUser("Enter Plaque:")
         };
     }
@@ -90,14 +90,13 @@ public class ConsoleUi : IUi
         var names = Enum.GetNames(typeof(CarType));
         //var values = Enum.GetValues(typeof(CarType));
 
-        Console.WriteLine("Car Types:");
         for (int i = 0; i < names.Length; i++)
         {
-            Console.WriteLine("Enter SpeedLimit for " + i + 1 + ": " + names[i]);
+            Console.WriteLine("Enter SpeedLimit for " + (i + 1) + ": " + names[i]);
 
             speedLimits.Add(new SpeedLimit
             {
-                CarType = (CarType)i,
+                CarType = (CarType)i + 1,
                 ValidSpeed = GetIntegerFromUser("Enter ValidSpeed:")
             });
         }

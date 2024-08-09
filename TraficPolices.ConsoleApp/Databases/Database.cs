@@ -1,5 +1,6 @@
 using System.Numerics;
 using TraficPolices.ConsoleApp.Entities;
+using TraficPolices.ConsoleApp.Enums;
 using TraficPolices.ConsoleApp.Interfaces;
 
 namespace TraficPolices.ConsoleApp.Databases;
@@ -20,6 +21,7 @@ public class Database(IUi ui)
         var newCar = ui.GetCar();
         newCar.Id = CalculateNewItemId(Cars);
         Cars.Add(newCar);
+        ui.ShowMessage(Enum.GetName(typeof(CarType), newCar.CarType) + " added");
     }
 
     public void AddRoad()
