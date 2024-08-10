@@ -1,12 +1,15 @@
+﻿using Models.Cars;
+using Models.Enums;
+using Models.Roads;
+using Models.SpeedGuards;
+using Models.SpeedLimits;
 using System.Numerics;
-using TraficPolices.ConsoleApp.Enums;
-using TraficPolices.ConsoleApp.Interfaces;
 
-namespace TraficPolices.ConsoleApp.Entities;
+namespace TraficPolices.ConsoleApp;
 
-public class ConsoleUi : IUi
+internal static class Ui
 {
-    public int GetIntegerFromUser(string message)
+    public static int GetIntegerFromUser(string message)
     {
         Console.WriteLine(message);
         bool isNumberValid = false;
@@ -22,8 +25,7 @@ public class ConsoleUi : IUi
         }
         return number;
     }
-
-    public BigInteger GetBigIntegerFromUser(string message)
+    public static BigInteger GetBigIntegerFromUser(string message)
     {
         Console.WriteLine(message);
         bool isNumberValid = false;
@@ -39,18 +41,16 @@ public class ConsoleUi : IUi
         }
         return number;
     }
-
-    public string GetStringFromUser(string message)
+    public static string GetStringFromUser(string message)
     {
         Console.WriteLine(message);
         return Console.ReadLine()!;
     }
-
-    public void ShowMessage(string message)
+    public static void ShowMessage(string message)
     {
         Console.WriteLine(message);
     }
-    void ShowCarTypes()
+    static void ShowCarTypes()
     {
         var names = Enum.GetNames(typeof(CarType));
         //var values = Enum.GetValues(typeof(CarType));
@@ -61,52 +61,33 @@ public class ConsoleUi : IUi
             Console.WriteLine((i + 1) + ": " + names[i]);
         }
     }
-
-    public Car GetCar()
+    public static Car GetCar()
     {
         ShowCarTypes();
-
-        return new Car((CarType)GetIntegerFromUser(" "), GetStringFromUser("Enter Plaque:"));
-
+        return new Car((CarType)GetIntegerFromUser("Enter Car Type :"), GetStringFromUser("Enter Plaque:"));
     }
 
-    public Movement GetMovement()
+    public static Road GetRoad()
     {
-        return new Movement
-        {
-            RoadId = GetIntegerFromUser("Enter RoadId:"),
-            CarPlaque = GetStringFromUser("Enter CarPlaque:"),
-            Speed = GetIntegerFromUser("Enter Speed:")
-        };
-    }
-
-    public Road GetRoad()
-    {
-        ShowCarTypes();
+        string title = GetStringFromUser("Enter Road Title :");
         var speedLimits = new List<SpeedLimit>();
         var names = Enum.GetNames(typeof(CarType));
         //var values = Enum.GetValues(typeof(CarType));
 
         for (int i = 0; i < names.Length; i++)
         {
-            Console.WriteLine("Enter SpeedLimit for " + (i + 1) + ": " + names[i]);
+            ShowMessage("Enter SpeedLimit for " + (i + 1) + ": " + names[i]);
 
-            speedLimits.Add(new SpeedLimit
-            {
-                CarType = (CarType)i + 1,
-                ValidSpeed = GetIntegerFromUser("Enter ValidSpeed:")
-            });
+            speedLimits.Add(new SpeedLimit((CarType)i + 1, GetIntegerFromUser("Enter ValidSpeed:")));
         }
+        return new Road(title, speedLimits);
+    }
 
-        return new Road
-        {
-            SpeedLimits = speedLimits
-        };
-    }
-    public void Clear()
+    public static SpeedGuard GetSpeedGuard()
     {
-        Console.Clear();
+        return new SpeedGuard(GetStringFromUser("Enter Title :"));
     }
+
 
 
 }

@@ -21,7 +21,6 @@ public class Database(IUi ui)
         var newCar = ui.GetCar();
         newCar.Id = CalculateNewItemId(Cars);
         Cars.Add(newCar);
-        ui.ShowMessage(Enum.GetName(typeof(CarType), newCar.CarType) + " added");
     }
 
     public void AddRoad()
