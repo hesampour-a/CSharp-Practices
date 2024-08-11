@@ -1,9 +1,11 @@
 ﻿using Models.SpeedGuards;
 using Models.TraficPolices;
+using TraficPolices.ConsoleApp.Interfaces;
+using TraficPolices.ConsoleApp.Uis;
 
 namespace TraficPolices.ConsoleApp.Menus;
 
-internal class SpeedGuardMenu(TraficPolice traficPolice)
+internal class SpeedGuardMenu(TraficPolice traficPolice,IUi ui)
 {
     private Dictionary<string, Action> MenuItems { get; set; } = new Dictionary<string, Action>();
     void AddItemsToMenu()
@@ -15,14 +17,14 @@ internal class SpeedGuardMenu(TraficPolice traficPolice)
     void ReportMovement()
     {
         traficPolice.Monitor(SpeedGuard.RecordMovement(
-            Ui.GetIntegerFromUser("Enter Road ID :"),
-            Ui.GetStringFromUser("Enter Car Plaque :"),
-            Ui.GetIntegerFromUser("Enter Speed :")));
+            ui.GetIntegerFromUser("Enter Road ID :"),
+            ui.GetStringFromUser("Enter Car Plaque :"),
+            ui.GetIntegerFromUser("Enter Speed :")));
     }
 
     public void Show()
     {
         AddItemsToMenu();
-        new Menu(MenuItems).Start();
+        new MenuBuilder(MenuItems,ui).Start();
     }
 }

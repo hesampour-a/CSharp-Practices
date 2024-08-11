@@ -1,6 +1,8 @@
 ﻿using Models.Databases;
+using Models.Mapper;
 using Models.Movements;
 using Models.Penalties;
+using Models.Roads;
 using System.Numerics;
 
 namespace Models.TraficPolices;
@@ -26,7 +28,7 @@ public class TraficPolice
             ?? throw new Exception("Car Not Found");
         var speedLimit = road.SpeedLimits.Find(s => s.CarType == car.Type);
 
-        if (speedLimit.ValidSpeed >= movement.Speed)
+        if (speedLimit!.ValidSpeed >= movement.Speed)
             return;
 
         car.Penalties.Add(new Penalty(CalculatePenaltyAmont(movement.Speed - speedLimit.ValidSpeed)));
@@ -54,7 +56,19 @@ public class TraficPolice
         }
     }
 
-    
+    public List<RoadDto> GetRoadsWithSpeedLimitForTrucks(int speedLimit = 60)
+    {
+        var roads = new List<RoadDto>();
+        foreach (var road in Database.Roads)
+        {
+            if (road.SpeedLimits.Any(_ => _.CarType == Enums.CarType.Truck && _.ValidSpeed <= speedLimit))
+                roads.Add(road.CreateRoadDto());
+        }
+
+        return roads;
+    }
+
+
 
 
 }

@@ -4,12 +4,13 @@ using Models.Roads;
 using Models.SpeedGuards;
 using Models.SpeedLimits;
 using System.Numerics;
+using TraficPolices.ConsoleApp.Interfaces;
 
-namespace TraficPolices.ConsoleApp;
+namespace TraficPolices.ConsoleApp.Uis;
 
-internal static class Ui
+internal class ConsoleUi : IUi
 {
-    public static int GetIntegerFromUser(string message)
+    public int GetIntegerFromUser(string message)
     {
         Console.WriteLine(message);
         bool isNumberValid = false;
@@ -25,7 +26,7 @@ internal static class Ui
         }
         return number;
     }
-    public static BigInteger GetBigIntegerFromUser(string message)
+    public BigInteger GetBigIntegerFromUser(string message)
     {
         Console.WriteLine(message);
         bool isNumberValid = false;
@@ -41,16 +42,16 @@ internal static class Ui
         }
         return number;
     }
-    public static string GetStringFromUser(string message)
+    public string GetStringFromUser(string message)
     {
         Console.WriteLine(message);
         return Console.ReadLine()!;
     }
-    public static void ShowMessage(string message)
+    public void ShowMessage(string message)
     {
         Console.WriteLine(message);
     }
-    static void ShowCarTypes()
+    void ShowCarTypes()
     {
         var names = Enum.GetNames(typeof(CarType));
         //var values = Enum.GetValues(typeof(CarType));
@@ -58,18 +59,19 @@ internal static class Ui
         Console.WriteLine("Car Types:");
         for (int i = 0; i < names.Length; i++)
         {
-            Console.WriteLine((i + 1) + ": " + names[i]);
+            Console.WriteLine(i + 1 + ": " + names[i]);
         }
     }
-    public static Car GetCar()
+    public Car GetCar()
     {
         ShowCarTypes();
         return new Car((CarType)GetIntegerFromUser("Enter Car Type :"), GetStringFromUser("Enter Plaque:"));
     }
 
-    public static Road GetRoad()
+    public Road GetRoad()
     {
-        string title = GetStringFromUser("Enter Road Title :");
+        string startPoint = GetStringFromUser("Enter Road StartPoint :");
+        string endPoint = GetStringFromUser("Enter Road EndPoint :");
         var speedLimits = new List<SpeedLimit>();
         var names = Enum.GetNames(typeof(CarType));
         //var values = Enum.GetValues(typeof(CarType));
@@ -80,10 +82,10 @@ internal static class Ui
 
             speedLimits.Add(new SpeedLimit((CarType)i + 1, GetIntegerFromUser("Enter ValidSpeed:")));
         }
-        return new Road(title, speedLimits);
+        return new Road(startPoint, endPoint, speedLimits);
     }
 
-    public static SpeedGuard GetSpeedGuard()
+    public SpeedGuard GetSpeedGuard()
     {
         return new SpeedGuard(GetStringFromUser("Enter Title :"));
     }

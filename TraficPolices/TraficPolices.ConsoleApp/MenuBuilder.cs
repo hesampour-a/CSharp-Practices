@@ -1,14 +1,17 @@
-﻿namespace TraficPolices.ConsoleApp.Menus;
+﻿using TraficPolices.ConsoleApp.Interfaces;
+using TraficPolices.ConsoleApp.Uis;
 
-public class Menu(Dictionary<string, Action> menuItems)
+namespace TraficPolices.ConsoleApp;
+
+public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui)
 {
     void PrintMenu()
     {
         for (int i = 0; i < menuItems.Count; i++)
         {
-            Ui.ShowMessage($"{i + 1}. {menuItems.Keys.ElementAt(i)}");
+            ui.ShowMessage($"{i + 1}. {menuItems.Keys.ElementAt(i)}");
         }
-        Ui.ShowMessage($"0. Exit");
+        ui.ShowMessage($"0. Exit");
     }
 
     int GetMenuChoice()
@@ -17,7 +20,7 @@ public class Menu(Dictionary<string, Action> menuItems)
         bool validChoice = false;
         while (!validChoice)
         {
-            choice = Ui.GetIntegerFromUser("Enter your choice : ");
+            choice = ui.GetIntegerFromUser("Enter your choice : ");
             validChoice = ValidateUserChoice(choice);
         }
         return choice;
@@ -33,14 +36,14 @@ public class Menu(Dictionary<string, Action> menuItems)
 
     public void Start()
     {
-        
+
         int menuChice = 0;
         do
         {
             PrintMenu();
             menuChice = GetMenuChoice();
             DoAction(menuChice);
-            Ui.GetStringFromUser("Press any key to continue ...");
+            ui.GetStringFromUser("Press any key to continue ...");
             Console.Clear();
         }
         while (menuChice != 0);

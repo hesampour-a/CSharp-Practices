@@ -1,8 +1,9 @@
 ﻿using Models.TraficPolices;
+using TraficPolices.ConsoleApp.Interfaces;
 
 namespace TraficPolices.ConsoleApp.Menus;
 
-internal class MainMenu(TraficPolice traficPolice)
+internal class MainMenu(TraficPolice traficPolice,IUi ui)
 {
     private Dictionary<string, Action> MenuItems { get; set; } = new Dictionary<string, Action>();
 
@@ -15,11 +16,11 @@ internal class MainMenu(TraficPolice traficPolice)
 
     void ShowTraficPoliceMenu()
     {
-        new TraficPoliceMenu(traficPolice).Show();
+        new TraficPoliceMenu(traficPolice,ui).Show();
     }
     void ShowSpeedGuardMenu()
     {
-        new SpeedGuardMenu(traficPolice).Show();
+        new SpeedGuardMenu(traficPolice,ui).Show();
     }
 
 
@@ -28,7 +29,7 @@ internal class MainMenu(TraficPolice traficPolice)
     public void Show()
     {
         AddMenuItems();
-        new Menu(MenuItems).Start();
+        new MenuBuilder(MenuItems,ui).Start();
     }
 
 
