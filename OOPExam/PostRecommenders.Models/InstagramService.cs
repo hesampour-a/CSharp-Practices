@@ -38,53 +38,9 @@ public class InstagramService : IInstagramPageService
 
             });
         });
-        //var customerPage = _customerPages[recommendCustomerPostsDto.CustomerId - 1];
-        //decimal validPay = customerPage.PageType == PageType.Personal ? 10 : 100;
-        //while(customerPage.Wallet>= validPay)
-        //{
-
-        //    foreach (var post in customerPage.Posts)
-        //    {
-        //        foreach (var follower in FindUsersWithIntrestToPost(post,customerPage))
-        //        {
-        //            if (_recommendations.Any(_ => _.Post == post && _.Follower == follower))
-        //                RecommendPostToFollower(post,customerPage,follower);
-
-        //        }
-
-        //    }
-        //}
 
     }
-    void RecommendPostToFollower(Post post, CustomerPage customerPage, Follower follower)
-    {
-        _recommendations.Add(new Recommendation
-        {
-            Follower = follower,
-            Post = post,
-           
-        });
-    }
-
-    //List<Follower> FindUsersWithIntrestToPost(Post post,CustomerPage customerPage)
-    //{
-    //   // var customer = _customerPages[recommendCustomerPostsDto.CustomerId - 1];
-
-    //    //_Followers.ForEach(follower =>
-    //    //{
-    //    //    if (!f.InterestedType.Contains(customer.PageType)) return;
-    //    //    var posts = customer.Posts.Where(p => p.Hashtags.Any(c => f.InterestedHashtags.Contains(c))).ToList();
-    //    //    posts.ForEach(post =>
-    //    //    {
-
-    //    //        _recommendations.Add(new Recommendation(post, follower));
-    //    //    });
-    //    //});
-    //   // return _followers.Where(_=>_.InterestedHashtags.Contains(post => ) &&
-
-    //   //_.InterestedTypes.Contains(customerPage.PageType)).ToList();
-    //}
-
+   
     public void RegisterCustomerPage(RegisterCustomerPageDto registerCustomerPageDto)
     {
         if (registerCustomerPageDto.FollowerCount < 10)
@@ -176,6 +132,7 @@ public class InstagramService : IInstagramPageService
         return new ShowTotalIncomeDto
         {
             TotalIncome = totalIncom
+            
         };
     }
 
