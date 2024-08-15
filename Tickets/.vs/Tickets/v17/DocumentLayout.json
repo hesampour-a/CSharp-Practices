@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "I:\\PRJ\\Asp .net\\Taav\\Tickets\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D23B6C8-E10F-46DC-9E7D-EAFBB81DFEF7}|Tickets.ConsoleApp\\Tickets.ConsoleApp.csproj|i:\\prj\\asp .net\\taav\\tickets\\tickets.consoleapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D23B6C8-E10F-46DC-9E7D-EAFBB81DFEF7}|Tickets.ConsoleApp\\Tickets.ConsoleApp.csproj|solutionrelative:tickets.consoleapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{94CE4212-0810-463E-A296-350290398C9E}|Tickets.Models\\Tickets.Models.csproj|i:\\prj\\asp .net\\taav\\tickets\\tickets.models\\models\\ticketssystem\\ticketsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94CE4212-0810-463E-A296-350290398C9E}|Tickets.Models\\Tickets.Models.csproj|solutionrelative:tickets.models\\models\\ticketssystem\\ticketsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D23B6C8-E10F-46DC-9E7D-EAFBB81DFEF7}|Tickets.ConsoleApp\\Tickets.ConsoleApp.csproj|i:\\prj\\asp .net\\taav\\tickets\\tickets.consoleapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D23B6C8-E10F-46DC-9E7D-EAFBB81DFEF7}|Tickets.ConsoleApp\\Tickets.ConsoleApp.csproj|solutionrelative:tickets.consoleapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94CE4212-0810-463E-A296-350290398C9E}|Tickets.Models\\Tickets.Models.csproj|i:\\prj\\asp .net\\taav\\tickets\\tickets.models\\models\\trips\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Tickets\\Tickets.ConsoleApp\\Menus\\MainMenu.cs",
               "RelativeDocumentMoniker": "Tickets.ConsoleApp\\Menus\\MainMenu.cs",
@@ -58,8 +58,7 @@
               "RelativeToolTip": "Tickets.ConsoleApp\\Menus\\MainMenu.cs",
               "ViewState": "AQIAAFcAAAAAAAAAAADwv2oAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T05:53:31.7Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-15T05:53:31.7Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "Tickets.Models\\Models\\TicketsSystem\\Contracts\\DTOs\\ShowCustomerDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T18:36:19.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T18:36:19.01Z"
             },
             {
               "$type": "Document",
@@ -84,8 +82,7 @@
               "RelativeToolTip": "Tickets.Models\\Models\\TicketsSystem\\Contracts\\DTOs\\ShowTripDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T18:35:18.301Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T18:35:18.301Z"
             },
             {
               "$type": "Document",
@@ -97,8 +94,7 @@
               "RelativeToolTip": "Tickets.Models\\Models\\TicketsSystem\\Contracts\\DTOs\\ShowTicketDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T18:34:15.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T18:34:15.371Z"
             },
             {
               "$type": "Document",
@@ -110,8 +106,7 @@
               "RelativeToolTip": "Tickets.Models\\Models\\Tickets\\Ticket.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T18:16:38.23Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T18:16:38.23Z"
             },
             {
               "$type": "Document",
@@ -123,18 +118,17 @@
               "RelativeToolTip": "Tickets.Models\\Models\\Trips\\Trip.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T18:15:41.62Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T18:15:41.62Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TicketSystem.cs",
               "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\Tickets\\Tickets.Models\\Models\\TicketsSystem\\TicketSystem.cs",
               "RelativeDocumentMoniker": "Tickets.Models\\Models\\TicketsSystem\\TicketSystem.cs",
               "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\Tickets\\Tickets.Models\\Models\\TicketsSystem\\TicketSystem.cs",
               "RelativeToolTip": "Tickets.Models\\Models\\TicketsSystem\\TicketSystem.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAIkAAAAvAAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAAAJIAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T18:14:09.16Z",
               "EditorCaption": ""

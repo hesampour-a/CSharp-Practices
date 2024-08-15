@@ -169,8 +169,9 @@ public class TicketSystem
     public List<ShowTripDto> ShowAvalibleTrips()
     {
         var avalibleTrips = _trips.Where(_ => _.Date > DateTime.Now && _.Bus.Capacity - _.SoldTickets.Count > 0).ToList();
-        return avalibleTrips.Select(_ => new ShowTripDto
+        return avalibleTrips.Select((_,Index) => new ShowTripDto
         {
+            Id = Index +1,
             BusType = Enum.GetName(typeof(BusType), _.Bus.Type)!,
             Date = _.Date.ToString(),
             OriginCity = _.OriginCity.Name,
