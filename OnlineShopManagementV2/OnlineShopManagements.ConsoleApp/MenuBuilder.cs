@@ -1,7 +1,6 @@
-﻿using TraficPolices.ConsoleApp.Interfaces;
-using TraficPolices.ConsoleApp.Uis;
+﻿using OnlineShopManagements.ConsoleApp.Interfaces;
 
-namespace TraficPolices.ConsoleApp;
+namespace OnlineShopManagements.ConsoleApp;
 
 public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string exitMessage = "Exit")
 {
@@ -20,7 +19,7 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
         bool validChoice = false;
         while (!validChoice)
         {
-            choice = ui.GetIntegerFromUser("Enter your choice : ");
+            choice = ui.GetInt("Enter your choice : ");
             validChoice = ValidateUserChoice(choice);
         }
         return choice;
@@ -34,7 +33,7 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
         menuItems.Values.ElementAt(choice - 1)();
     }
 
-    public void Start()
+    public void Build()
     {
 
         int menuChoice = 0;
@@ -43,7 +42,7 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
             PrintMenu();
             menuChoice = GetMenuChoice();
             DoAction(menuChoice);
-            ui.GetStringFromUser("Press any key to continue ...");
+            ui.GetString("Press any key to continue ...");
             Console.Clear();
         }
         while (menuChoice != 0);

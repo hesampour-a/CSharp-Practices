@@ -1,7 +1,6 @@
 ﻿using Models.Roads;
 using Models.TraficPolices;
 using TraficPolices.ConsoleApp.Interfaces;
-using TraficPolices.ConsoleApp.Uis;
 
 namespace TraficPolices.ConsoleApp.Menus;
 

@@ -1,0 +1,113 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|i:\\prj\\asp .net\\taav\\onlineshopmanagementv2\\onlineshopmanagements.consoleapp\\menubuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|solutionrelative:onlineshopmanagements.consoleapp\\menubuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|i:\\prj\\asp .net\\taav\\onlineshopmanagementv2\\onlineshopmanagements.consoleapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|solutionrelative:onlineshopmanagements.consoleapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|i:\\prj\\asp .net\\taav\\onlineshopmanagementv2\\onlineshopmanagements.consoleapp\\menus\\getordermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|solutionrelative:onlineshopmanagements.consoleapp\\menus\\getordermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|i:\\prj\\asp .net\\taav\\onlineshopmanagementv2\\onlineshopmanagements.consoleapp\\uis\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A4F96E3-65BE-469D-A02B-54535F31C01F}|OnlineShopManagements.ConsoleApp\\OnlineShopManagements.ConsoleApp.csproj|solutionrelative:onlineshopmanagements.consoleapp\\uis\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B782C9FA-938A-4A6E-A405-89B155817192}|OnlineShppManagements.Models\\OnlineShppManagements.Models.csproj|i:\\prj\\asp .net\\taav\\onlineshopmanagementv2\\onlineshppmanagements.models\\mapper\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B782C9FA-938A-4A6E-A405-89B155817192}|OnlineShppManagements.Models\\OnlineShppManagements.Models.csproj|solutionrelative:onlineshppmanagements.models\\mapper\\mapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConsoleUi.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\UIs\\ConsoleUi.cs",
+              "RelativeDocumentMoniker": "OnlineShopManagements.ConsoleApp\\UIs\\ConsoleUi.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\UIs\\ConsoleUi.cs",
+              "RelativeToolTip": "OnlineShopManagements.ConsoleApp\\UIs\\ConsoleUi.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T04:09:49.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuBuilder.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\MenuBuilder.cs",
+              "RelativeDocumentMoniker": "OnlineShopManagements.ConsoleApp\\MenuBuilder.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\MenuBuilder.cs",
+              "RelativeToolTip": "OnlineShopManagements.ConsoleApp\\MenuBuilder.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAxwB4AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T04:02:58.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetOrderMenu.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\Menus\\GetOrderMenu.cs",
+              "RelativeDocumentMoniker": "OnlineShopManagements.ConsoleApp\\Menus\\GetOrderMenu.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\Menus\\GetOrderMenu.cs",
+              "RelativeToolTip": "OnlineShopManagements.ConsoleApp\\Menus\\GetOrderMenu.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA0wAoAAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T04:01:57.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\Menus\\MainMenu.cs",
+              "RelativeDocumentMoniker": "OnlineShopManagements.ConsoleApp\\Menus\\MainMenu.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShopManagements.ConsoleApp\\Menus\\MainMenu.cs",
+              "RelativeToolTip": "OnlineShopManagements.ConsoleApp\\Menus\\MainMenu.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAxwBwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T04:01:20.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Mapper.cs",
+              "DocumentMoniker": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShppManagements.Models\\Mapper\\Mapper.cs",
+              "RelativeDocumentMoniker": "OnlineShppManagements.Models\\Mapper\\Mapper.cs",
+              "ToolTip": "I:\\PRJ\\Asp .net\\Taav\\OnlineShopManagementV2\\OnlineShppManagements.Models\\Mapper\\Mapper.cs",
+              "RelativeToolTip": "OnlineShppManagements.Models\\Mapper\\Mapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T03:59:05.29Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

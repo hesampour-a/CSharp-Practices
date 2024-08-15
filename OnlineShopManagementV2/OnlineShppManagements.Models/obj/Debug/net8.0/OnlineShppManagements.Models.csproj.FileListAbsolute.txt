@@ -1,0 +1,12 @@
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\bin\Debug\net8.0\OnlineShppManagements.Models.deps.json
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\bin\Debug\net8.0\OnlineShppManagements.Models.dll
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\bin\Debug\net8.0\OnlineShppManagements.Models.pdb
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.GeneratedMSBuildEditorConfig.editorconfig
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.AssemblyInfoInputs.cache
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.AssemblyInfo.cs
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.csproj.CoreCompileInputs.cache
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.sourcelink.json
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.dll
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\refint\OnlineShppManagements.Models.dll
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\OnlineShppManagements.Models.pdb
+I:\PRJ\Asp .net\Taav\OnlineShopManagementV2\OnlineShppManagements.Models\obj\Debug\net8.0\ref\OnlineShppManagements.Models.dll
