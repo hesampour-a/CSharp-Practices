@@ -313,3 +313,5 @@ nCrunchTemp_*
 *.ncrunchsolution
 *ncrunchproject
 *.user
+
+**/bin
