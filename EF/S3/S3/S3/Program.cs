@@ -1,3 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using S3.Data;
+using S3.Models;
 
-Console.WriteLine("Hello, World!");
+var context = new EfDataContext();
+
+var student = new Student
+{
+    Name = "John Doe",
+};
+
+context.Students.Add(student);
+context.SaveChanges();
