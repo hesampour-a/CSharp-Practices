@@ -21,7 +21,8 @@ public class InstagramService : IInstagramPageService
         _followers.ForEach(follower =>
         {
             if (!follower.InterestedTypes.Contains(customer.PageType)) return;
-            var posts = customer.Posts.Where(p => p.Hashtags.Any(c => follower.InterestedHashtags.Contains(c))).ToList();
+            var posts = customer.Posts.Where(p => p.Hashtags.Any(c => follower.InterestedHashtags.Contains(c)))
+                .ToList();
             posts.ForEach(post =>
             {
                 if (customer.Wallet >= payPerRecommend)
@@ -30,35 +31,34 @@ public class InstagramService : IInstagramPageService
                     {
                         Follower = follower,
                         Post = post,
-                        
                     });
                     customer.Wallet -= payPerRecommend;
                     totalIncom += payPerRecommend;
                 }
-
             });
         });
-
     }
-   
+
     public void RegisterCustomerPage(RegisterCustomerPageDto registerCustomerPageDto)
     {
         if (registerCustomerPageDto.FollowerCount < 10)
             throw new Exception("you need at least 10 follower");
         _customerPages.Add(
             new
-            CustomerPage
-            (
-            registerCustomerPageDto.Title,
-            registerCustomerPageDto.PageType,
-            registerCustomerPageDto.FollowerCount
-            ));
+                CustomerPage
+                (
+                    registerCustomerPageDto.Title,
+                    registerCustomerPageDto.PageType,
+                    registerCustomerPageDto.FollowerCount
+                ));
     }
 
     public void RegisterCustomerPost(RegisterCustomerPostDto registerCustomerPostDto)
     {
         if (registerCustomerPostDto.LikeCount >= 5 && registerCustomerPostDto.Hashtags.Count() >= 1)
-            _customerPages[registerCustomerPostDto.CustomerId - 1].Posts.Add(new Post(registerCustomerPostDto.PostAddress, registerCustomerPostDto.LikeCount, registerCustomerPostDto.Hashtags));
+            _customerPages[registerCustomerPostDto.CustomerId - 1].Posts.Add(new Post(
+                registerCustomerPostDto.PostAddress, registerCustomerPostDto.LikeCount,
+                registerCustomerPostDto.Hashtags));
     }
 
     public void RegisterFollower(RegisterFollowerDto registerFollowerDto)
@@ -77,8 +77,6 @@ public class InstagramService : IInstagramPageService
 
         if (!(follower.InterestedTypes.Any(_ => _ == registerFollowerLikedPostDto.LikedPageType)))
             follower.InterestedTypes.Add(registerFollowerLikedPostDto.LikedPageType);
-
-
     }
 
     public List<RecommendationDto> ShowCustomerRecommendations(RecommendationRequestDto recommendationRequestDto)
@@ -86,7 +84,7 @@ public class InstagramService : IInstagramPageService
         var list = new List<RecommendationDto>();
         var customer = _customerPages[recommendationRequestDto.CustomerId - 1];
         decimal payPerRecommend = customer.PageType == PageType.Personal ? 30 : 300;
-        if(customer.Wallet >= payPerRecommend)
+        if (customer.Wallet >= payPerRecommend)
         {
             totalIncom += payPerRecommend;
             customer.Wallet -= payPerRecommend;
@@ -94,13 +92,12 @@ public class InstagramService : IInstagramPageService
             {
                 InterestedHashtag = _.Key,
                 Count = _.Count()
-
             }).OrderByDescending(_ => _.Count).Select(_ => _.InterestedHashtag).ToList();
 
-            list.Add(  new RecommendationDto { Hashtags = recommends } );
+            list.Add(new RecommendationDto { Hashtags = recommends });
         }
-       return list;
 
+        return list;
     }
 
 
@@ -128,11 +125,9 @@ public class InstagramService : IInstagramPageService
 
     public ShowTotalIncomeDto ShowTotalIncome()
     {
-       
         return new ShowTotalIncomeDto
         {
             TotalIncome = totalIncom
-            
         };
     }
 

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfStoreSession6_Practice", "EfStoreSession6_Practice\EfStoreSession6_Practice.csproj", "{691AD54D-A383-4898-A784-D0ADC63A0378}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{691AD54D-A383-4898-A784-D0ADC63A0378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691AD54D-A383-4898-A784-D0ADC63A0378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691AD54D-A383-4898-A784-D0ADC63A0378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691AD54D-A383-4898-A784-D0ADC63A0378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

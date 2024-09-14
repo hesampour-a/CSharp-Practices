@@ -1,29 +1,22 @@
 ﻿using S4.Data;
+using S4.IOs;
+using S4.IOs.Menus;
 using S4.Models;
 
+var consoleUi = new ConsoleUi();
 var dbContext = new EfDataContext();
+var mainMenu = new MainMenu(dbContext, consoleUi);
+
+
+var fars = dbContext.Provinces.FirstOrDefault(_ => _.Title == "Fars");
+var tehran = dbContext.Provinces.FirstOrDefault(_ => _.Title == "Tehran");       
+
 
 //CreateCountries(dbContext);
-//CreateStates(dbContext);
+//CreateProvinces(dbContext);
 //CreateCities(dbContext);
 
-var countries = dbContext.Countries.ToList();
-Console.WriteLine($"Total countries: {countries.Count}");
-
-var states = dbContext.States.ToList();
-Console.WriteLine($"Total states: {states.Count}");
-
-var cities = dbContext.Cities.ToList();
-Console.WriteLine($"Total cities: {cities.Count}");
-
-var toBeDeletedCity = dbContext.Cities.FirstOrDefault(_ => _.Title == "City 7");
-dbContext.Cities.Remove(toBeDeletedCity);
-dbContext.SaveChanges();
-
-var toBeUpdatedCity = dbContext.Cities.FirstOrDefault(_=>_.Title == "City 6");
-toBeUpdatedCity.Title = "City 66";
-dbContext.SaveChanges();
-
+mainMenu.Show();
 
 
 void CreateCountries(EfDataContext dbContext)
@@ -32,63 +25,33 @@ void CreateCountries(EfDataContext dbContext)
     [
         new Country
         {
-            Title = "USA"
+            Title = "Iran"
         },
-        new Country
-        {
-            Title = "Canada"
-        },
-        new Country
-        {
-        Title = "Italy"
-        },
-        new Country
-        {
-            Title = "Germany"
-        }
+       
     ];
     
     dbContext.Countries.AddRange(countries);
     dbContext.SaveChanges();
 }
 
-void CreateStates(EfDataContext dbContext)
+void CreateProvinces(EfDataContext dbContext)
 {
-    List<State> states =
+    List<Province> provinces =
     [
-        new State
+        new Province
         {
-            Title = "Arizona",
-            CountryId = 1
+            Title = "Fars",
+            CountryId = 5
         },
-        new State
+        new Province
         {
-            Title = "Virginia",
-            CountryId = 1
+            Title = "Tehran",
+            CountryId = 5
         },
-        new State
-        {
-            Title = "FirstCanadaState",
-            CountryId = 2
-        }, 
-        new State
-        {
-            Title = "SecondCanadaState",
-            CountryId = 2
-        },
-        new State
-        {
-            Title = "FirstItalyState",
-            CountryId = 3
-        },
-        new State
-        {
-            Title = "FirstGermanyState",
-            CountryId = 4
-        },
+        
     ];
     
-    dbContext.States.AddRange(states);
+    dbContext.Provinces.AddRange(provinces);
     dbContext.SaveChanges();
 }
 
@@ -97,38 +60,23 @@ void CreateCities(EfDataContext dbContext)
     List<City> cities = [
         new City
         {
-            Title = "City 1",
-            StateId = 1
+            Title = "Shiraz",
+            ProvinceId = fars.Id
         },
         new City
         {
-            Title = "City 2",
-            StateId = 1
+            Title = "Zarqan",
+            ProvinceId = fars.Id
         },
         new City
         {
-            Title = "City 3",
-            StateId = 2
+            Title = "Tehran",
+            ProvinceId = tehran.Id
         },
         new City
         {
-            Title = "City 4",
-            StateId = 3
-        },
-        new City
-        {
-            Title = "City 5",
-            StateId = 4
-        },
-        new City
-        {
-            Title = "City 6",
-            StateId = 5
-        },
-        new City
-        {
-            Title = "City 7",
-            StateId = 6
+            Title = "Damavand",
+            ProvinceId = tehran.Id
         },
     ];
     dbContext.Cities.AddRange(cities);

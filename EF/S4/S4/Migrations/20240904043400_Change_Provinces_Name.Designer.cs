@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using S4.Data;
 
@@ -10,9 +11,11 @@ using S4.Data;
 namespace S4.Migrations
 {
     [DbContext(typeof(EfDataContext))]
-    partial class EfDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240904043400_Change_Provinces_Name")]
+    partial class Change_Provinces_Name
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,28 +85,6 @@ namespace S4.Migrations
                     b.ToTable("Provinces", (string)null);
                 });
 
-            modelBuilder.Entity("S4.Models.School", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("Schools", (string)null);
-                });
-
             modelBuilder.Entity("S4.Models.City", b =>
                 {
                     b.HasOne("S4.Models.Province", "Province")
@@ -124,22 +105,6 @@ namespace S4.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("S4.Models.School", b =>
-                {
-                    b.HasOne("S4.Models.City", "City")
-                        .WithMany("Schools")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("City");
-                });
-
-            modelBuilder.Entity("S4.Models.City", b =>
-                {
-                    b.Navigation("Schools");
                 });
 
             modelBuilder.Entity("S4.Models.Country", b =>
