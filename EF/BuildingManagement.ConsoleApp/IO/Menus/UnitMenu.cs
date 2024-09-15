@@ -27,6 +27,7 @@ public class UnitMenu(IUi ui, EfDataContext dbContext) : MenuStructure(ui)
 
     private void CreateUnit()
     {
+        new FloorMenu(ui, dbContext).ShowAllFloors();
         var floorId = ui.GetIntegerFromUser("Enter floor ID");
         var floor = _floorRepository.GetById(floorId)
                     ?? throw new NotFoundException(nameof(Floor), floorId);

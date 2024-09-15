@@ -27,6 +27,7 @@ public class CostMenu(IUi ui, EfDataContext dbContext) : MenuStructure(ui)
 
     private void CreateCost()
     {
+        new BlockMenu(ui, dbContext).ShowAllBlocks();
         int blockId = ui.GetIntegerFromUser("Enter Cost's Block ID: ");
         var block = _blockRepository.GetById(blockId)
                     ?? throw new NotFoundException(nameof(Block), blockId);

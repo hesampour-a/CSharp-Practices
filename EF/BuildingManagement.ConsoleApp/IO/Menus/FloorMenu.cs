@@ -27,6 +27,7 @@ public class FloorMenu(IUi ui, EfDataContext dbContext) : MenuStructure(ui)
 
     private void CreateFloor()
     {
+        new BlockMenu(ui,dbContext).ShowAllBlocks();
         int blockId = ui.GetIntegerFromUser("Enter new Floor's Block Id");
         var block = _blockRepository.GetById(blockId)
                     ?? throw new NotFoundException(nameof(Block), blockId);
@@ -35,7 +36,7 @@ public class FloorMenu(IUi ui, EfDataContext dbContext) : MenuStructure(ui)
                 block.MaxFloorNumber);
         var newFloor = new Floor
         {
-            BlockId = ui.GetIntegerFromUser("Enter new Floor's Block Id"),
+            BlockId = blockId,
             Name = ui.GetStringFromUser("Enter new Floor's Name"),
             MaxUnitNumber =
                 ui.GetIntegerFromUser("Enter new Floor's Max Unit Number"),
@@ -44,7 +45,7 @@ public class FloorMenu(IUi ui, EfDataContext dbContext) : MenuStructure(ui)
         dbContext.SaveChanges();
     }
 
-    private void ShowAllFloors()
+    public void ShowAllFloors()
     {
         var floors = _floorRepository.GetAll();
         floors.ForEach(_ =>

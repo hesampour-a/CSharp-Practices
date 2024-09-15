@@ -24,7 +24,8 @@ public class EfBlockRepository(EfDataContext dbContext)
             {
                 Id = _.Id,
                 Name = _.Name,
-                FloorCount = _.Floors.Count
+                FloorCount = _.Floors.Count,
+                MaxFloorNumber = _.MaxFloorNumber,
             })).ToList();
     }
 
