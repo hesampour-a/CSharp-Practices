@@ -4,7 +4,7 @@ using Shop.ConsoleApp.Ef.Models;
 
 namespace Shop.ConsoleApp.Ef.EfPersistances.Products;
 
-public class ProductEntityMap :IEntityTypeConfiguration<Product>
+public class ProductEntityMap : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {

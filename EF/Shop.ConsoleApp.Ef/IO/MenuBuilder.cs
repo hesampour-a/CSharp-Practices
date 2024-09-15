@@ -3,22 +3,23 @@ using Shop.ConsoleApp.Ef.IO.Interfaces;
 
 namespace Shop.ConsoleApp.Ef.IO;
 
-public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string exitMessage = "Exit")
+public class MenuBuilder(
+    Dictionary<string, Action> menuItems,
+    IUi ui,
+    string exitMessage = "Exit")
 {
-    void PrintMenu()
+    private void PrintMenu()
     {
-        for (int i = 0; i < menuItems.Count; i++)
-        {
+        for (var i = 0; i < menuItems.Count; i++)
             ui.ShowMessage($"{i + 1}. {menuItems.Keys.ElementAt(i)}");
-        }
 
         ui.ShowMessage($"0. {exitMessage}");
     }
 
-    int GetMenuChoice()
+    private int GetMenuChoice()
     {
-        int choice = 0;
-        bool validChoice = false;
+        var choice = 0;
+        var validChoice = false;
         while (!validChoice)
         {
             choice = ui.GetIntegerFromUser("Enter your choice : ");
@@ -28,7 +29,7 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
         return choice;
     }
 
-    void DoAction(int choice)
+    private void DoAction(int choice)
     {
         if (choice == 0)
             return;
@@ -37,7 +38,7 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
 
     public void Start()
     {
-        int menuChoice = 0;
+        var menuChoice = 0;
         do
         {
             PrintMenu();
@@ -50,7 +51,6 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
             {
                 ui.ShowMessage(e.Message);
             }
-            
 
 
             ui.GetStringFromUser("Press any key to continue ...");
@@ -58,7 +58,7 @@ public class MenuBuilder(Dictionary<string, Action> menuItems, IUi ui, string ex
         } while (menuChoice != 0);
     }
 
-    bool ValidateUserChoice(int choice)
+    private bool ValidateUserChoice(int choice)
     {
         return choice >= 0 && choice <= menuItems.Count;
     }

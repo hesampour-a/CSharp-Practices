@@ -20,7 +20,7 @@ public class EfPersonnelRepository(EfDataContext dbContext)
                 select new ShowPersonnelDto
                 {
                     Id = userPersonnels.Id,
-                    Name = user.Name,
+                    Name = user.Name
                 }
             ).ToList();
     }

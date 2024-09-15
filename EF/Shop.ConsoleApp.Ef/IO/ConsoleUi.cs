@@ -12,11 +12,11 @@ public class ConsoleUi : IUi
     public int GetIntegerFromUser(string message)
     {
         Console.WriteLine(message);
-        bool isNumberValid = false;
-        int number = 0;
+        var isNumberValid = false;
+        var number = 0;
         while (!isNumberValid)
         {
-            isNumberValid = int.TryParse(Console.ReadLine(), out int result);
+            isNumberValid = int.TryParse(Console.ReadLine(), out var result);
             if (!isNumberValid)
                 Console.WriteLine("Please Enter a correct number");
 
@@ -30,11 +30,12 @@ public class ConsoleUi : IUi
     public decimal GetDecimalFromUser(string message)
     {
         Console.WriteLine(message);
-        bool isNumberValid = false;
+        var isNumberValid = false;
         decimal number = 0;
         while (!isNumberValid)
         {
-            isNumberValid = decimal.TryParse(Console.ReadLine(), out decimal result);
+            isNumberValid =
+                decimal.TryParse(Console.ReadLine(), out var result);
             if (!isNumberValid)
                 Console.WriteLine("Please Enter a correct number");
 

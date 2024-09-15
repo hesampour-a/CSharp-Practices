@@ -8,10 +8,12 @@ public class EfOrderItemRepository(EfDataContext dbContext)
     {
         dbContext.OrderItems.Add(orderItem);
     }
+
     public OrderItem? GetById(int orderItemId)
     {
-        return dbContext.OrderItems.FirstOrDefault(_=>_.Id == orderItemId);
+        return dbContext.OrderItems.FirstOrDefault(_ => _.Id == orderItemId);
     }
+
     public void DeleteRange(List<OrderItem> orderItems)
     {
         dbContext.OrderItems.RemoveRange(orderItems);

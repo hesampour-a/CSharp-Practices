@@ -7,6 +7,7 @@ public class Personnel
     public int UserId { get; set; }
 
     public int StoreId { get; set; }
+
     // public int ShopId { get; set; }
     public int PersonelCode { get; set; }
 }

@@ -1,6 +1,4 @@
-﻿using Shop.ConsoleApp.Ef.Models;
-
-namespace Shop.ConsoleApp.Ef.Dtos.Products;
+﻿namespace Shop.ConsoleApp.Ef.Dtos.Products;
 
 public class ShowProductReportDto
 {

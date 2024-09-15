@@ -9,10 +9,9 @@ namespace Shop.ConsoleApp.Ef.IO.Menus;
 
 public class EditOrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
 {
-    EfOrderRepository orderRepository = new EfOrderRepository(dbContext);
+    private readonly EfOrderItemRepository orderItemRepository = new(dbContext);
 
-    EfOrderItemRepository orderItemRepository =
-        new EfOrderItemRepository(dbContext);
+    private readonly EfOrderRepository orderRepository = new(dbContext);
 
     public Dictionary<string, Action> MenuItems { get; set; } = [];
 
@@ -23,23 +22,29 @@ public class EditOrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         MenuItems.Add("Change number of products", ChangeItemCountToOrder);
     }
 
-    void ChangeItemCountToOrder()
+    public void Show()
+    {
+        AddMenuItems();
+        new MenuBuilder(MenuItems, ui, "Back to Order Menu").Start();
+    }
+
+    private void ChangeItemCountToOrder()
     {
         ShowAllOrderItemsForOrder();
-        int orderItemId = ui.GetIntegerFromUser("Enter an order item ID: ");
-        int newOrderItemCount =
+        var orderItemId = ui.GetIntegerFromUser("Enter an order item ID: ");
+        var newOrderItemCount =
             ui.GetIntegerFromUser("Enter an order item count: ");
         var orderItem =
-           orderItemRepository.GetById(orderItemId)
+            orderItemRepository.GetById(orderItemId)
             ?? throw new NotFoundException(nameof(OrderItem), orderItemId);
         orderItem.ProductCount = newOrderItemCount;
         dbContext.SaveChanges();
     }
 
-    void RemoveItemFromOrder()
+    private void RemoveItemFromOrder()
     {
         ShowAllOrderItemsForOrder();
-        int orderItemId = ui.GetIntegerFromUser("Enter an order item ID: ");
+        var orderItemId = ui.GetIntegerFromUser("Enter an order item ID: ");
         var orderItem =
             dbContext.OrderItems.FirstOrDefault(_ => _.Id == orderItemId)
             ?? throw new NotFoundException(nameof(OrderItem), orderItemId);
@@ -47,15 +52,15 @@ public class EditOrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         dbContext.SaveChanges();
     }
 
-    void AddItemToOrder()
+    private void AddItemToOrder()
     {
         ShowAllOrdersForUser();
-        int orderId = ui.GetIntegerFromUser("Enter an order ID: ");
+        var orderId = ui.GetIntegerFromUser("Enter an order ID: ");
         var orderItem = new OrderItem
         {
             OrderId = orderId,
             ProductCount = ui.GetIntegerFromUser("Enter product count: "),
-            ProductId = ui.GetIntegerFromUser("Enter product ID: "),
+            ProductId = ui.GetIntegerFromUser("Enter product ID: ")
         };
         orderItemRepository.Create(orderItem);
         dbContext.SaveChanges();
@@ -64,7 +69,7 @@ public class EditOrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
     public void ShowAllOrderItemsForOrder()
     {
         ShowAllOrdersForUser();
-        int orderId = ui.GetIntegerFromUser("Enter an order ID: ");
+        var orderId = ui.GetIntegerFromUser("Enter an order ID: ");
         var orderItems = orderRepository.ShowOrdersForUser(orderId);
         orderItems.ForEach(_ =>
         {
@@ -76,15 +81,9 @@ public class EditOrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         });
     }
 
-    public void Show()
+    private void ShowAllOrdersForUser()
     {
-        AddMenuItems();
-        new MenuBuilder(MenuItems, ui, "Back to Order Menu").Start();
-    }
-
-    void ShowAllOrdersForUser()
-    {
-        int customerId = ui.GetIntegerFromUser("Enter Customer Id :");
+        var customerId = ui.GetIntegerFromUser("Enter Customer Id :");
         var orders = orderRepository.GetOrdersForUser(customerId);
 
         orders.ForEach(_ =>

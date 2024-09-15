@@ -8,8 +8,8 @@ public class PersonnelEntityMap : IEntityTypeConfiguration<Personnel>
 {
     public void Configure(EntityTypeBuilder<Personnel> builder)
     {
-       builder.ToTable("Personnels");
-       builder.HasKey(x => x.Id);
-       builder.Property(x => x.Id).UseIdentityColumn();
+        builder.ToTable("Personnels");
+        builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).UseIdentityColumn();
     }
 }

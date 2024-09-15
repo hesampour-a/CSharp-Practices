@@ -8,8 +8,7 @@ namespace Shop.ConsoleApp.Ef.EfPersistances.Orders;
 
 public class EfOrderRepository(EfDataContext dbContext)
 {
-    EfOrderItemRepository orderItemRepository =
-        new EfOrderItemRepository(dbContext);
+    private readonly EfOrderItemRepository orderItemRepository = new(dbContext);
 
     public void Create(Order order)
     {
@@ -59,7 +58,7 @@ public class EfOrderRepository(EfDataContext dbContext)
                 OrderItemId = orderItem.Id,
                 ProductName = product.Title,
                 ProductCount = orderItem.ProductCount,
-                ProductPrice = product.Price,
+                ProductPrice = product.Price
             }
         ).ToList();
     }
@@ -83,7 +82,7 @@ public class EfOrderRepository(EfDataContext dbContext)
 
     public void Delete(Order order)
     {
-        List<OrderItem> customerOrderItems = dbContext.OrderItems
+        var customerOrderItems = dbContext.OrderItems
             .Where(_ => _.OrderId == order.Id).ToList();
         //orderItemRepository.DeleteRange(customerOrderItems);
         dbContext.Orders.Remove(order);

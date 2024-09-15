@@ -1,5 +1,4 @@
-﻿using Shop.ConsoleApp.Ef.Dtos.Orders;
-using Shop.ConsoleApp.Ef.EfPersistances;
+﻿using Shop.ConsoleApp.Ef.EfPersistances;
 using Shop.ConsoleApp.Ef.EfPersistances.Customers;
 using Shop.ConsoleApp.Ef.EfPersistances.OrderItems;
 using Shop.ConsoleApp.Ef.EfPersistances.Orders;
@@ -11,13 +10,11 @@ namespace Shop.ConsoleApp.Ef.IO.Menus;
 
 public class OrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
 {
-    EfCustomerRepository customerRepository =
-        new EfCustomerRepository(dbContext);
+    private readonly EfCustomerRepository customerRepository = new(dbContext);
 
-    EfOrderRepository orderRepository = new EfOrderRepository(dbContext);
+    private readonly EfOrderItemRepository orderItemRepository = new(dbContext);
 
-    EfOrderItemRepository orderItemRepository =
-        new EfOrderItemRepository(dbContext);
+    private readonly EfOrderRepository orderRepository = new(dbContext);
 
     public Dictionary<string, Action> MenuItems { get; set; } = [];
 
@@ -29,37 +26,42 @@ public class OrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         MenuItems.Add("Edit Order Menu", ShowEditOrderMenu);
     }
 
-    void ShowEditOrderMenu()
+
+    public void Show()
+    {
+        AddMenuItems();
+        new MenuBuilder(MenuItems, ui, "Back to Main Menu").Start();
+    }
+
+    private void ShowEditOrderMenu()
     {
         new EditOrderMenu(dbContext, ui).Show();
     }
 
-    void CreateNewOrder()
+    private void CreateNewOrder()
     {
-        int customerId = ui.GetIntegerFromUser("Enter Customer Id :");
+        var customerId = ui.GetIntegerFromUser("Enter Customer Id :");
         var customer =
             customerRepository.GetById(customerId)
             ?? throw new NotFoundException(nameof(Customer), customerId);
         var order = new Order
         {
-            CustomerId = customerId,
+            CustomerId = customerId
         };
         orderRepository.Create(order);
         dbContext.SaveChanges();
         ShowAllProducts();
-        int itemCount = ui.GetIntegerFromUser("Enter Number of Items :");
-        for (int i = 0; i < itemCount; i++)
-        {
-           orderItemRepository.Create(new OrderItem
+        var itemCount = ui.GetIntegerFromUser("Enter Number of Items :");
+        for (var i = 0; i < itemCount; i++)
+            orderItemRepository.Create(new OrderItem
             {
                 ProductId = ui.GetIntegerFromUser("Enter Product Id :"),
                 ProductCount = ui.GetIntegerFromUser("Enter Product Count :"),
                 OrderId = order.Id
             });
-        }
 
         dbContext.SaveChanges();
-        
+
         var orderProducts = orderRepository.GetOrderProducts(order.Id);
         decimal totalPrice = 0;
         orderProducts.ForEach(_ =>
@@ -70,9 +72,9 @@ public class OrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         dbContext.SaveChanges();
     }
 
-    void ShowAllOrdersForUser()
+    private void ShowAllOrdersForUser()
     {
-        int customerId = ui.GetIntegerFromUser("Enter Customer Id :");
+        var customerId = ui.GetIntegerFromUser("Enter Customer Id :");
         var orders = orderRepository.GetCustomerOrders(customerId);
 
         orders.ForEach(_ =>
@@ -81,29 +83,22 @@ public class OrderMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         });
     }
 
-    void DeleteOrderById()
+    private void DeleteOrderById()
     {
-        int orderId = ui.GetIntegerFromUser("Enter Order Id :");
+        var orderId = ui.GetIntegerFromUser("Enter Order Id :");
         var order = orderRepository.GetById(orderId)
                     ?? throw new NotFoundException(nameof(Order), orderId);
         orderRepository.Delete(order);
         dbContext.SaveChanges();
     }
 
-
-    public void Show()
-    {
-        AddMenuItems();
-        new MenuBuilder(MenuItems, ui, "Back to Main Menu").Start();
-    }
-
-    void ShowAllProducts()
+    private void ShowAllProducts()
     {
         var products = dbContext.Products.ToList();
         products.ForEach(product => { PrintProduct(product); });
     }
 
-    void PrintProduct(Product product)
+    private void PrintProduct(Product product)
     {
         ui.ShowMessage(
             $"Id : {product.Id} , Name : {product.Title} , Price : {product.Price} ");

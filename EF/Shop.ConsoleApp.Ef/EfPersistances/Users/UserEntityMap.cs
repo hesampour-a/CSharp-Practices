@@ -6,7 +6,6 @@ namespace Shop.ConsoleApp.Ef.EfPersistances.Users;
 
 public class UserEntityMap : IEntityTypeConfiguration<User>
 {
-   
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.ToTable("Users");

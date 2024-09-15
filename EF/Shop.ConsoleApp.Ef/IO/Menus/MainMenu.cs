@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Shop.ConsoleApp.Ef.EfPersistances;
+﻿using Shop.ConsoleApp.Ef.EfPersistances;
 using Shop.ConsoleApp.Ef.EfPersistances.Products;
 using Shop.ConsoleApp.Ef.IO.Interfaces;
 
@@ -7,7 +6,7 @@ namespace Shop.ConsoleApp.Ef.IO.Menus;
 
 public class MainMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
 {
-    EfProductRepository productRepository = new EfProductRepository(dbContext);
+    private readonly EfProductRepository productRepository = new(dbContext);
     public Dictionary<string, Action> MenuItems { get; set; } = [];
 
     public void AddMenuItems()
@@ -20,12 +19,19 @@ public class MainMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         MenuItems.Add("ProductsReport", ShowProductsReport);
     }
 
-    void ShowCustomerOrderRecord()
+
+    public void Show()
+    {
+        AddMenuItems();
+        new MenuBuilder(MenuItems, ui).Start();
+    }
+
+    private void ShowCustomerOrderRecord()
     {
         new EditOrderMenu(dbContext, ui).ShowAllOrderItemsForOrder();
     }
 
-    void ShowProductsReport()
+    private void ShowProductsReport()
     {
         var products = productRepository.GetProductsReport();
 
@@ -39,29 +45,22 @@ public class MainMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         });
     }
 
-
-    public void Show()
-    {
-        AddMenuItems();
-        new MenuBuilder(MenuItems, ui).Start();
-    }
-
-    void ShowProductMenu()
+    private void ShowProductMenu()
     {
         new ProductMenu(dbContext, ui).Show();
     }
 
-    void ShowPersonnelMenu()
+    private void ShowPersonnelMenu()
     {
         new PersonnelMenu(dbContext, ui).Show();
     }
 
-    void ShowCustomerMenu()
+    private void ShowCustomerMenu()
     {
         new CustomerMenu(dbContext, ui).Show();
     }
 
-    void ShowOrderMenu()
+    private void ShowOrderMenu()
     {
         new OrderMenu(dbContext, ui).Show();
     }

@@ -5,5 +5,5 @@ using Shop.ConsoleApp.Ef.IO.Menus;
 var dbContext = new EfDataContext();
 var ui = new ConsoleUi();
 
-var mainMenu = new MainMenu(dbContext,ui);
+var mainMenu = new MainMenu(dbContext, ui);
 mainMenu.Show();

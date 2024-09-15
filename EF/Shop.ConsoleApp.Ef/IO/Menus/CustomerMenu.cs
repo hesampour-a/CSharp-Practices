@@ -10,11 +10,14 @@ namespace Shop.ConsoleApp.Ef.IO.Menus;
 
 public class CustomerMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
 {
-    EfCustomerRepository customerRepository =
-        new EfCustomerRepository(dbContext);
+    private readonly EfCustomerRepository customerRepository = new(dbContext);
 
-    EfUserRepository userRepository = new EfUserRepository(dbContext);
-    EfOrderRepository orderRepository = new EfOrderRepository(dbContext);
+    private EfOrderRepository orderRepository = new(dbContext);
+
+    //===============
+    private readonly List<Action> testt1 = [];
+
+    private readonly EfUserRepository userRepository = new(dbContext);
     public Dictionary<string, Action> MenuItems { get; set; } = [];
 
     public void AddMenuItems()
@@ -25,11 +28,17 @@ public class CustomerMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         MenuItems.Add("Delete Customer", DeleteCustomer);
     }
 
-    void CreateCustomer()
+    public void Show()
+    {
+        AddMenuItems();
+        new MenuBuilder(MenuItems, ui, "Back to Main Menu").Start();
+    }
+
+    private void CreateCustomer()
     {
         var newUser = new User
         {
-            Name = ui.GetStringFromUser("Enter name :"),
+            Name = ui.GetStringFromUser("Enter name :")
         };
         userRepository.Create(newUser);
         dbContext.SaveChanges();
@@ -37,13 +46,13 @@ public class CustomerMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         var newCustomer = new Customer
         {
             UserId = newUser.Id,
-            Address = ui.GetStringFromUser("Enter Customer's Address :"),
+            Address = ui.GetStringFromUser("Enter Customer's Address :")
         };
         customerRepository.Create(newCustomer);
         dbContext.SaveChanges();
     }
 
-    void ShowAllCustomers()
+    private void ShowAllCustomers()
     {
         var allCustomers = customerRepository.GetAll();
 
@@ -55,12 +64,12 @@ public class CustomerMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
     }
 
 
-    void EditCustomer()
+    private void EditCustomer()
     {
-        int customerId = ui.GetIntegerFromUser("Enter Customer id :");
+        var customerId = ui.GetIntegerFromUser("Enter Customer id :");
         var customer =
             customerRepository.GetById(customerId)
-            ?? throw new NotFoundException(nameof(Models.Customer), customerId);
+            ?? throw new NotFoundException(nameof(Customer), customerId);
         var user = userRepository.GetById(customer.UserId);
 
         customer.Address =
@@ -69,26 +78,17 @@ public class CustomerMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         dbContext.SaveChanges();
     }
 
-    void DeleteCustomer()
+    private void DeleteCustomer()
     {
-        int customerId = ui.GetIntegerFromUser("Enter Customer id :");
+        var customerId = ui.GetIntegerFromUser("Enter Customer id :");
         var customer =
             customerRepository.GetById(customerId)
-            ?? throw new NotFoundException(nameof(Models.Customer), customerId);
+            ?? throw new NotFoundException(nameof(Customer), customerId);
 
         dbContext.SaveChanges();
     }
 
-    public void Show()
-    {
-        AddMenuItems();
-        new MenuBuilder(MenuItems, ui, "Back to Main Menu").Start();
-    }
-    
-    //===============
-    private List<Action> testt1 = [];
-
-    void method()
+    private void method()
     {
         testt1.Add(DeleteCustomer);
     }

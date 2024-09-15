@@ -6,7 +6,7 @@ namespace Shop.ConsoleApp.Ef.EfPersistances.Customers;
 
 public class EfCustomerRepository(EfDataContext dbContext)
 {
-    EfOrderRepository orderRepository = new EfOrderRepository(dbContext);
+    private readonly EfOrderRepository orderRepository = new(dbContext);
 
     public void Create(Customer customer)
     {

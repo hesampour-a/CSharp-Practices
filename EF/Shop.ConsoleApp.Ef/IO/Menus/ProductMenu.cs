@@ -7,10 +7,9 @@ using Shop.ConsoleApp.Ef.Models;
 
 namespace Shop.ConsoleApp.Ef.IO.Menus;
 
-
 public class ProductMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
 {
-    EfProductRepository productRepository = new EfProductRepository(dbContext);
+    private readonly EfProductRepository productRepository = new(dbContext);
     public Dictionary<string, Action> MenuItems { get; set; } = [];
 
     public void AddMenuItems()
@@ -21,29 +20,34 @@ public class ProductMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         MenuItems.Add("Delete Product", DeleteProduct);
     }
 
-    void CreateProduct()
+    public void Show()
+    {
+        AddMenuItems();
+        new MenuBuilder(MenuItems, ui, "Back to Main Menu").Start();
+    }
+
+    private void CreateProduct()
     {
         var newProduct = new Product
         {
             Title = ui.GetStringFromUser("Enter Product Name: "),
-            Price = ui.GetDecimalFromUser("Enter Product Price: "),
+            Price = ui.GetDecimalFromUser("Enter Product Price: ")
         };
 
         productRepository.Add(newProduct);
         dbContext.SaveChanges();
     }
 
-    void ShowAllProducts()
+    private void ShowAllProducts()
     {
         var products = productRepository.GetProducts();
         products.ForEach(product => { PrintProduct(product); });
     }
 
-   
 
-    void EditProduct()
+    private void EditProduct()
     {
-        int id = ui.GetIntegerFromUser("Enter Product Id: ");
+        var id = ui.GetIntegerFromUser("Enter Product Id: ");
         var product = dbContext.Products.FirstOrDefault(_ => _.Id == id)
                       ?? throw new NotFoundException(nameof(Product), id);
         product.Title = ui.GetStringFromUser("Enter Products new Title: ");
@@ -51,24 +55,18 @@ public class ProductMenu(EfDataContext dbContext, IUi ui) : IMenuBuilder
         dbContext.SaveChanges();
     }
 
-    void DeleteProduct()
+    private void DeleteProduct()
     {
-        int id = ui.GetIntegerFromUser("Enter Product Id: ");
+        var id = ui.GetIntegerFromUser("Enter Product Id: ");
         var product = productRepository.GetById(id)
                       ?? throw new NotFoundException(nameof(Product), id);
         productRepository.Delete(product);
         dbContext.SaveChanges();
     }
 
-    void PrintProduct(ShowProductDto product)
+    private void PrintProduct(ShowProductDto product)
     {
         ui.ShowMessage(
             $"Id : {product.Id} , Name : {product.Title} , Price : {product.Price} ");
-    }
-
-    public void Show()
-    {
-        AddMenuItems();
-        new MenuBuilder(MenuItems, ui, "Back to Main Menu").Start();
     }
 }
