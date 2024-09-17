@@ -19,6 +19,16 @@ public class BlockMenu(IUi ui, EfDataContext dbContext) : MenuStructure(ui)
         MenuItems.Add("Show All Blocks", ShowAllBlocks);
         MenuItems.Add("Edit Block", EditBlock);
         MenuItems.Add("Delete Block", DeleteBlock);
+        MenuItems.Add("Show Report", ShowReport);
+    }
+
+    private void ShowReport()
+    {
+        var dtos = _blockRepository.GetBlockReport();
+        dtos.ForEach(d =>
+        {
+            ui.ShowMessage($"Name : {d.Name},MaxFloorNumber: {d.MaxFloorNumber},UnitsCount: {d.UnitsCount},Costs {d.Costs.Count},FloorsCount: {d.FloorsCount}");
+        });
     }
 
     private void CreateNewBlock()
