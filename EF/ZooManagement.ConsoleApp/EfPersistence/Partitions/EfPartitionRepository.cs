@@ -47,9 +47,9 @@ public class EfPartitionRepository(EfDataContext dbContext)
             }).ToList();
     }
 
-    public List<ShowReport4Dto> GetReport4()
+    public List<ShowReport4Dto> GetReport4(int zooId)
     {
-        return dbContext.Partitions.Include(_ => _.Ticket)
+        return dbContext.Partitions.Where(_=>_.ZooId == zooId).Include(_ => _.Ticket)
             .ThenInclude(_ => _.SoldTickets).Select(_ => new ShowReport4Dto
             {
                 PartitionId = _.Id,
@@ -57,9 +57,9 @@ public class EfPartitionRepository(EfDataContext dbContext)
             }).OrderByDescending(_ => _.SoldTicketCount).ToList();
     }
 
-    public List<ShowReport5Dto> GetReport5()
+    public List<ShowReport5Dto> GetReport5(int zooId)
     {
-        return dbContext.Partitions.Include(_ => _.Ticket)
+        return dbContext.Partitions.Where(_=>_.ZooId == zooId).Include(_ => _.Ticket)
             .ThenInclude(_ => _.SoldTickets).Select(_ => new ShowReport5Dto
             {
                 PartitionId = _.Id,

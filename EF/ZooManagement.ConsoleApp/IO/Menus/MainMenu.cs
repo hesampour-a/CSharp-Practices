@@ -1,6 +1,8 @@
 ﻿using ZooManagement.ConsoleApp.EfPersistence;
 using ZooManagement.ConsoleApp.EfPersistence.Partitions;
 using ZooManagement.ConsoleApp.EfPersistence.Zooes;
+using ZooManagement.ConsoleApp.Entities;
+using ZooManagement.ConsoleApp.Exceptions;
 using ZooManagement.ConsoleApp.IO.Interfaces;
 
 namespace ZooManagement.ConsoleApp.IO.Menus;
@@ -69,7 +71,11 @@ public class MainMenu(EfDataContext dbContext, IUi ui) : MenuStructure(ui)
 
     private void ShowReport4()
     {
-        var partitions = _partitionRepository.GetReport4();
+        new ZooMenu(dbContext, ui).ShowAll();
+        int zooId = ui.GetIntegerFromUser("Enter Zoo Id:");
+        var zoo = _zooRepository.GetById(zooId)
+                  ?? throw new NotFoundException(nameof(Zoo), zooId);
+        var partitions = _partitionRepository.GetReport4(zooId);
         partitions.ForEach(_ =>
         {
             ui.ShowMessage(
@@ -79,7 +85,11 @@ public class MainMenu(EfDataContext dbContext, IUi ui) : MenuStructure(ui)
 
     private void ShowReport5()
     {
-        var partitions = _partitionRepository.GetReport5();
+        new ZooMenu(dbContext, ui).ShowAll();
+        int zooId = ui.GetIntegerFromUser("Enter Zoo Id:");
+        var zoo = _zooRepository.GetById(zooId)
+                  ?? throw new NotFoundException(nameof(Zoo), zooId);
+        var partitions = _partitionRepository.GetReport5(zooId);
         partitions.ForEach(p =>
         {
             ui.ShowMessage(
