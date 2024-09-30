@@ -1,5 +1,4 @@
-﻿
-using EfStoreSession6_Practice.EFPersistance;
+﻿using EfStoreSession6_Practice.EFPersistance;
 using EfStoreSession6_Practice.EFPersistance.Employees;
 using EfStoreSession6_Practice.EFPersistance.Stores;
 using EfStoreSession6_Practice.EFPersistance.Users;
@@ -10,17 +9,14 @@ var userRepository = new EFUserRepository(context);
 var employeeRepository = new EFEmployeeRepository(context);
 var storeRepository = new EFStoreRepository(context);
 while (true)
-{
     try
     {
         Run();
-
     }
     catch (Exception e)
     {
         Console.WriteLine(e);
     }
-}
 
 void Run()
 {
@@ -90,29 +86,19 @@ void Run()
             break;
     }
 }
+
 #region services
+
 User CreateUser()
 {
     Console.WriteLine("Enter first name:");
     var firstName = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(firstName))
-    {
-        throw new Exception();
-    }
-    if (firstName.Length>100)
-    {
-        throw new Exception();
-    }
+    if (string.IsNullOrWhiteSpace(firstName)) throw new Exception();
+    if (firstName.Length > 100) throw new Exception();
     Console.WriteLine("Enter last name:");
     var lastName = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(lastName))
-    {
-        throw new Exception();
-    }
-    if (lastName.Length>100)
-    {
-        throw new Exception();
-    }
+    if (string.IsNullOrWhiteSpace(lastName)) throw new Exception();
+    if (lastName.Length > 100) throw new Exception();
     Console.WriteLine("Enter Phone number:");
     var phoneNumber = Console.ReadLine();
     var user = new User
@@ -129,11 +115,8 @@ void CreateEmployee(int userId)
 {
     Console.WriteLine("Enter personel number:");
     var personelNumber = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(personelNumber))
-    {
-        throw new Exception();
-    }
-    var employee = new Employee()
+    if (string.IsNullOrWhiteSpace(personelNumber)) throw new Exception();
+    var employee = new Employee
     {
         UserId = userId,
         PersonnelNumber = personelNumber
@@ -146,20 +129,19 @@ void ViewAllEmployees()
     var employees =
         employeeRepository.GetAll();
 
-    foreach (var employee  in employees)
-    {
-        Console.WriteLine($"{employee.EmployeeId} - {employee.FirstName} {employee.LastName} " +
-                          $"- Phone number: {employee.PhoneNumber} " +
-                          $"- Personnel Code: {employee.PersonnelNumber} " +
-                          $"- Store name: {employee.StoreName}");
-    }
+    foreach (var employee in employees)
+        Console.WriteLine(
+            $"{employee.EmployeeId} - {employee.FirstName} {employee.LastName} " +
+            $"- Phone number: {employee.PhoneNumber} " +
+            $"- Personnel Code: {employee.PersonnelNumber} " +
+            $"- Store name: {employee.StoreName}");
 }
 
 void AddStore()
 {
     Console.WriteLine("Enter store name");
     var storeName = Console.ReadLine();
-    var store = new Store()
+    var store = new Store
     {
         Name = storeName
     };
@@ -172,28 +154,20 @@ void ViewStores()
 {
     var stores = storeRepository.GetAll();
     foreach (var store in stores)
-    {
         Console.WriteLine($"{store.Id} - {store.Name}");
-    }
 }
 
 void AddEmployeeToStore()
 {
     ViewAllEmployees();
     Console.WriteLine("select employee id");
-    int.TryParse(Console.ReadLine(), out int employeeId);
+    int.TryParse(Console.ReadLine(), out var employeeId);
     var employee = employeeRepository.GetById(employeeId);
-    if (employee is null)
-    {
-        throw new Exception();
-    }
+    if (employee is null) throw new Exception();
     ViewStores();
     Console.WriteLine("select store id");
-    int.TryParse(Console.ReadLine(), out int storeId);
-    if (!storeRepository.DoesStoreExistById(storeId))
-    {
-        throw new Exception();
-    }
+    int.TryParse(Console.ReadLine(), out var storeId);
+    if (!storeRepository.DoesStoreExistById(storeId)) throw new Exception();
     employee.StoreId = storeId;
     context.SaveChanges();
 }
@@ -202,37 +176,19 @@ void EditEmployee()
 {
     ViewAllEmployees();
     Console.WriteLine("select employee id");
-    int.TryParse(Console.ReadLine(), out int employeeId);
+    int.TryParse(Console.ReadLine(), out var employeeId);
     var employee = employeeRepository.GetById(employeeId);
-    if (employee is null)
-    {
-        throw new Exception();
-    }
+    if (employee is null) throw new Exception();
     var user = userRepository.GetById(employee.UserId);
-    if (user is null)
-    {
-        throw new Exception();
-    }
+    if (user is null) throw new Exception();
     Console.WriteLine("Enter first name:");
     var firstName = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(firstName))
-    {
-        throw new Exception();
-    }
-    if (firstName.Length>100)
-    {
-        throw new Exception();
-    }
+    if (string.IsNullOrWhiteSpace(firstName)) throw new Exception();
+    if (firstName.Length > 100) throw new Exception();
     Console.WriteLine("Enter last name:");
     var lastName = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(lastName))
-    {
-        throw new Exception();
-    }
-    if (lastName.Length>100)
-    {
-        throw new Exception();
-    }
+    if (string.IsNullOrWhiteSpace(lastName)) throw new Exception();
+    if (lastName.Length > 100) throw new Exception();
     Console.WriteLine("Enter Phone number:");
     var phoneNumber = Console.ReadLine();
     user.FirstName = firstName;
@@ -245,15 +201,11 @@ void DeleteEmployee()
 {
     ViewAllEmployees();
     Console.WriteLine("select employee id");
-    int.TryParse(Console.ReadLine(), out int employeeId);
+    int.TryParse(Console.ReadLine(), out var employeeId);
     var employee = employeeRepository.GetById(employeeId);
-    if (employee is null)
-    {
-        throw new Exception();
-    }
+    if (employee is null) throw new Exception();
     employeeRepository.Remove(employee);
     context.SaveChanges();
 }
 
 #endregion
-

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfStoreSession6_Practice.EFPersistance.Users;
 
-public class UserEntityMap:IEntityTypeConfiguration<User>
+public class UserEntityMap : IEntityTypeConfiguration<User>
 {
     public void Configure(
         EntityTypeBuilder<User> builder)

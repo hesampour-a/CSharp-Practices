@@ -11,6 +11,6 @@ public class EFUserRepository(EFDataContext context)
 
     public User? GetById(int id)
     {
-        return context.Set<User>().FirstOrDefault(_=>_.Id==id);
+        return context.Set<User>().FirstOrDefault(_ => _.Id == id);
     }
 }

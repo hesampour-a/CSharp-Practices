@@ -1,12 +1,11 @@
-﻿using System.Security.Principal;
-using EfStoreSession6_Practice.EFPersistance.Users;
+﻿using EfStoreSession6_Practice.EFPersistance.Users;
 using EfStoreSession6_Practice.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace EfStoreSession6_Practice.EFPersistance;
 
-public class EFDataContext:DbContext
+public class EFDataContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Employee> Employees { get; set; }
@@ -16,8 +15,9 @@ public class EFDataContext:DbContext
         DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Data Source=.; Initial Catalog= EFSession6;Integrated Security=true;" +
-            "Trust Server Certificate=true;").LogTo(Console.WriteLine,LogLevel.Information);
+                "Data Source=.; Initial Catalog= EFSession6;Integrated Security=true;" +
+                "Trust Server Certificate=true;")
+            .LogTo(Console.WriteLine, LogLevel.Information);
     }
 
     protected override void OnModelCreating(

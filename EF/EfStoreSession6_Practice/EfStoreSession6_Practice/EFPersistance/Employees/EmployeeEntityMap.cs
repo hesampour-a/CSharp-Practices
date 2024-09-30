@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfStoreSession6_Practice.EFPersistance.Employees;
 
-public class EmployeeEntityMap:IEntityTypeConfiguration<Employee>
+public class EmployeeEntityMap : IEntityTypeConfiguration<Employee>
 {
     public void Configure(EntityTypeBuilder<Employee> builder)
     {
         builder.ToTable("Staffs");
-        
+
         builder.HasKey(_ => _.Id);
         builder.Property(_ => _.Id)
             .UseIdentityColumn();
@@ -20,5 +20,6 @@ public class EmployeeEntityMap:IEntityTypeConfiguration<Employee>
             .IsRequired().HasMaxLength(10);
         builder.Property(_ => _.StoreId)
             .IsRequired(false);
+        
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EfStoreSession6_Practice.EFPersistance.Stores;
 
-public class StoreEntityMap:IEntityTypeConfiguration<Store>
+public class StoreEntityMap : IEntityTypeConfiguration<Store>
 {
     public void Configure(EntityTypeBuilder<Store> builder)
     {

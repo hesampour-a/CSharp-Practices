@@ -9,6 +9,7 @@ public class EFStoreRepository(EFDataContext context)
     {
         context.Set<Store>().Add(store);
     }
+
     public List<GetAllStoresDto> GetAll()
     {
         return context.Set<Store>().Select(
@@ -21,6 +22,6 @@ public class EFStoreRepository(EFDataContext context)
 
     public bool DoesStoreExistById(int id)
     {
-        return context.Set<Store>().Any(_=>_.Id == id);
+        return context.Set<Store>().Any(_ => _.Id == id);
     }
 }
