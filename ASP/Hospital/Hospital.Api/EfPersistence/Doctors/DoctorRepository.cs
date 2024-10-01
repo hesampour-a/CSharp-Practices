@@ -26,4 +26,9 @@ public class DoctorRepository(EfDataContext dbContext) : IDoctorRepository
     {
         return await dbContext.Doctors.FirstOrDefaultAsync(_ => _.Id == id);
     }
+
+    public void Delete(Doctor doctor)
+    {
+        dbContext.Doctors.Remove(doctor);
+    }
 }

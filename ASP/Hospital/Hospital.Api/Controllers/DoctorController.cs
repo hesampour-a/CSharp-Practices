@@ -41,13 +41,25 @@ public class DoctorController(
         var doctor = await doctorRepository.GetById(id);
 
         if (doctor == null)
-        {
             return NotFound();
-        }
+
 
         doctor.Name = editDoctorDto.Name;
         doctor.Specialty = editDoctorDto.Specialty;
         await uintOfWork.Save();
         return Ok();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] int id)
+    {
+        var doctor = await doctorRepository.GetById(id);
+
+        if (doctor == null)
+            return NotFound();
+
+        doctorRepository.Delete(doctor);
+        await uintOfWork.Save();
+        return NoContent();
     }
 }
