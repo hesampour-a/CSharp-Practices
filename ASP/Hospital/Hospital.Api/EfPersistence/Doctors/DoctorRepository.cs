@@ -21,4 +21,9 @@ public class DoctorRepository(EfDataContext dbContext) : IDoctorRepository
         await dbContext.Doctors.AddAsync(doctor);
         
     }
+
+    public async Task<Doctor?> GetById(int id)
+    {
+        return await dbContext.Doctors.FirstOrDefaultAsync(_ => _.Id == id);
+    }
 }

@@ -17,7 +17,7 @@ public class DoctorController(
     public async Task<IActionResult> GetAll()
     {
         var restaurants = await doctorRepository.GetAll();
-        
+
         return Ok(restaurants);
     }
 
@@ -30,6 +30,23 @@ public class DoctorController(
                 Specialty = doctor.Specialty,
             }
         );
+        await uintOfWork.Save();
+        return Ok();
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Edit([FromRoute] int id,
+        EditDoctorDto editDoctorDto)
+    {
+        var doctor = await doctorRepository.GetById(id);
+
+        if (doctor == null)
+        {
+            return NotFound();
+        }
+
+        doctor.Name = editDoctorDto.Name;
+        doctor.Specialty = editDoctorDto.Specialty;
         await uintOfWork.Save();
         return Ok();
     }
