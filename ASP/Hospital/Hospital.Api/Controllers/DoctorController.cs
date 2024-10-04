@@ -2,6 +2,7 @@ using Hospital.Api.EfPersistence;
 using Hospital.Api.EfPersistence.Doctors;
 using Hospital.Api.Entities.Doctors;
 using Hospital.Api.Entities.Doctors.Dtos;
+using Hospital.Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,56 +11,45 @@ namespace Hospital.Api.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class DoctorController(
-    IDoctorRepository doctorRepository,
-    IUintOfWork uintOfWork) : ControllerBase
+    DoctorService doctorService
+) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var restaurants = await doctorRepository.GetAll();
+        var doctors = await doctorService.GetAllAsync();
 
-        return Ok(restaurants);
+        return Ok(doctors);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get([FromRoute] int id)
+    {
+        var doctor = await doctorService.GetByIdAsync(id);
+
+        return Ok(doctor);
     }
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateDoctorDto doctor)
     {
-        await doctorRepository.Create(new Doctor
-            {
-                Name = doctor.Name,
-                Specialty = doctor.Specialty,
-            }
-        );
-        await uintOfWork.Save();
-        return Ok();
+        var newDoctorId = await doctorService.AddAsync(doctor);
+        return CreatedAtAction(nameof(Get), new { id = newDoctorId }, null);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Edit([FromRoute] int id,
         EditDoctorDto editDoctorDto)
     {
-        var doctor = await doctorRepository.GetById(id);
-
-        if (doctor == null)
-            return NotFound();
-
-
-        doctor.Name = editDoctorDto.Name;
-        doctor.Specialty = editDoctorDto.Specialty;
-        await uintOfWork.Save();
+        await doctorService.EditAsync(id, editDoctorDto);
         return Ok();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        var doctor = await doctorRepository.GetById(id);
+        doctorService.Delete(id);
 
-        if (doctor == null)
-            return NotFound();
-
-        doctorRepository.Delete(doctor);
-        await uintOfWork.Save();
         return NoContent();
     }
 }

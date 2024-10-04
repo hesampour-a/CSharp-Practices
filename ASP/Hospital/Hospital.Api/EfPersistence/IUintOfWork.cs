@@ -2,5 +2,6 @@
 
 public interface IUintOfWork
 {
-    Task Save();
+    Task SaveAsync();
+    void Save();
 }

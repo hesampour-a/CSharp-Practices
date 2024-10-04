@@ -2,8 +2,13 @@
 
 public class UintOfWork(EfDataContext dbContext) : IUintOfWork
 {
-    public async Task Save()
+    public async Task SaveAsync()
     {
         await dbContext.SaveChangesAsync();
+    }
+    
+    public void Save()
+    {
+         dbContext.SaveChanges();
     }
 }

@@ -16,10 +16,10 @@ public class DoctorRepository(EfDataContext dbContext) : IDoctorRepository
         }).ToListAsync();
     }
 
-    public async Task Create(Doctor doctor)
+    public async Task<int> Create(Doctor doctor)
     {
         await dbContext.Doctors.AddAsync(doctor);
-        
+        return doctor.Id;
     }
 
     public async Task<Doctor?> GetById(int id)
@@ -31,4 +31,5 @@ public class DoctorRepository(EfDataContext dbContext) : IDoctorRepository
     {
         dbContext.Doctors.Remove(doctor);
     }
+    
 }
