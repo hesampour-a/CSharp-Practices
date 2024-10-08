@@ -1,5 +1,4 @@
 ﻿using Library.Entities.Books;
-using Library.Entities.Rates;
 using Library.Entities.Users;
 
 namespace Library.Entities.Lends;
@@ -14,5 +13,4 @@ public class Lend
     public DateOnly LendDate { get; set; }
     public DateOnly ReturnDate { get; set; }
     public bool IsReturned { get; set; }
-   
 }

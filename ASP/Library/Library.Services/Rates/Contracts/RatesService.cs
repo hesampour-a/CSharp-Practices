@@ -1,6 +1,4 @@
-﻿using Library.Entities.Rates;
-using Library.Services.Rates.Contracts.Dtos;
-using Library.Services.UnitOfWorks;
+﻿using Library.Services.Rates.Contracts.Dtos;
 
 namespace Library.Services.Rates.Contracts;
 

@@ -1,5 +1,4 @@
 ﻿using Library.Entities.Users;
-using Library.Services.Lends.Contracts.Dtos;
 using Library.Services.Users.Contracts;
 using Library.Services.Users.Contracts.Dtos;
 using Microsoft.EntityFrameworkCore;
@@ -55,8 +54,8 @@ public class EfUserRepository(EfDataContext dbContext) : UserRepository
             Penalty = (from user in dbContext.Users
                 join lend in dbContext.Lends
                     on user.Id equals lend.UserId
-                where (user.Id == _.Id && lend.IsReturned == false &&
-                       lend.ReturnDate < DateOnly.FromDateTime(DateTime.Now))
+                where user.Id == _.Id && lend.IsReturned == false &&
+                      lend.ReturnDate < DateOnly.FromDateTime(DateTime.Now)
                 group lend by user.Id
                 into g
                 select new

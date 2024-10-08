@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using Library.Entities.Books;
+﻿using Library.Entities.Books;
 using Library.Services.Books.Contracts;
 using Library.Services.Books.Contracts.Dtos;
 using Microsoft.EntityFrameworkCore;
@@ -35,7 +34,7 @@ public class EfBookRepository(EfDataContext dbContext) : BookRepository
                 LendsCount = b.Lends.Count,
                 AverageScore = b.Rates.Any()
                     ? b.Rates.Average(_ => _.Score)
-                    : 0,
+                    : 0
             })
             .OrderByDescending(b => b.AverageScore)
             .ToListAsync();

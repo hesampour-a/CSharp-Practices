@@ -56,7 +56,7 @@ public class EfLendRepository(EfDataContext dbContext) : LendRepository
                     Id = _.Id,
                     UserName = _.User.Name,
                     LendDate = _.LendDate,
-                    ReturnDate = _.ReturnDate,
+                    ReturnDate = _.ReturnDate
                 }).ToListAsync();
     }
 }

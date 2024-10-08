@@ -1,6 +1,4 @@
 ﻿using Library.Entities.Books;
-using Library.Entities.Lends;
-using Library.Entities.Users;
 
 namespace Library.Entities.Rates;
 

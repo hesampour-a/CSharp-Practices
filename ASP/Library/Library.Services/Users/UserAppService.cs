@@ -39,10 +39,7 @@ public class UserAppService(
     public async Task<IEnumerable<ShowAllUsersDto>> GetAllAsync()
     {
         var dtos = await userRepository.GetAllAsync();
-        foreach (var dto in dtos)
-        {
-            dto.Penalty *= 20000;
-        }
+        foreach (var dto in dtos) dto.Penalty *= 20000;
 
         return dtos;
     }

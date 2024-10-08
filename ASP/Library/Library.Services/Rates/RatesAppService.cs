@@ -14,7 +14,7 @@ public class RatesAppService(
         await ratesRepository.CreateAsync(new Rate
         {
             BookId = createRateDto.BookId,
-            Score = createRateDto.Score,
+            Score = createRateDto.Score
         });
     }
 }

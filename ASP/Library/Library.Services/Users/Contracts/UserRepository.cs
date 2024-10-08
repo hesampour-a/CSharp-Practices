@@ -1,5 +1,4 @@
 ﻿using Library.Entities.Users;
-using Library.Services.Lends.Contracts.Dtos;
 using Library.Services.Users.Contracts.Dtos;
 
 namespace Library.Services.Users.Contracts;

@@ -59,7 +59,7 @@ public class LendsAppService(
         return newLend.Id;
     }
 
-    public async Task ReturnLendAsync(int id, ReturnLendDto lendDto)
+    public async Task ReturnLendAsync(int id)
     {
         var lend = await lendRepository.GetByIdAsync(id)
                    ?? throw new Exception("Lend not found");
@@ -71,20 +71,14 @@ public class LendsAppService(
             throw new Exception($"you should pay {penaltyAmpount}");
         }
 
-        if (lendDto.Score != null)
-            await ratesService.CreateAsync(new CreateRateDto
-            {
-                BookId = lend.BookId,
-                Score = lendDto.Score!.Value,
-            });
-
         lend.IsReturned = true;
         await unitOfWork.SaveAsync();
     }
 
-    public async Task<IEnumerable<ShowActiveLendDto>> GetAllActivesAsync(int? bookId, int? userId)
+    public async Task<IEnumerable<ShowActiveLendDto>> GetAllActivesAsync(
+        int? bookId, int? userId)
     {
-       return await lendRepository.GetAllActivesAsync(bookId, userId);
+        return await lendRepository.GetAllActivesAsync(bookId, userId);
     }
 
     private async Task<bool> CheckIfUserCanLendNewBook(int userId)
