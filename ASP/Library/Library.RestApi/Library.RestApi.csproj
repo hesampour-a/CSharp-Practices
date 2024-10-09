@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Application\Application.csproj" />
+        <ProjectReference Include="..\Library.Application\Library.Application.csproj" />
         <ProjectReference Include="..\Library.Persistence.Ef\Library.Persistence.Ef.csproj"/>
         <ProjectReference Include="..\Library.Services\Library.Services.csproj"/>
     </ItemGroup>

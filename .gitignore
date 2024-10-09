@@ -293,7 +293,7 @@ CodeGraphData/
 # Visual Paradigm
 *.vpp.lck
 *.vpp.bak*
-src/*.RestApi/Properties/
+
 .config/
 
 ##

@@ -1,11 +1,11 @@
-﻿using Application.Lends.ReturnLends.Contracts;
+﻿using Library.Application.Lends.ReturnLends.Contracts;
 using Library.Services.Lends.Contracts;
 using Library.Services.Lends.Contracts.Dtos;
 using Library.Services.Rates.Contracts;
 using Library.Services.Rates.Contracts.Dtos;
 using Library.Services.UnitOfWorks;
 
-namespace Application.Lends.ReturnLends;
+namespace Library.Application.Lends.ReturnLends;
 
 public class ReturnLendCommandHandler(
     LendsService lendsService,
@@ -18,16 +18,20 @@ public class ReturnLendCommandHandler(
         try
         {
             await unitOfWork.Begin();
+
             await lendsService.ReturnLendAsync(id);
 
-            var lend = await lendRepository.GetByIdAsync(id);
             if (lendDto.Score != null)
+            {
+                var lend = await lendRepository.GetByIdAsync(id);
+
                 await ratesService.CreateAsync(new CreateRateDto
                 {
                     BookId = lend.BookId,
                     Score = lendDto.Score!.Value
                 });
-            await unitOfWork.SaveAsync();
+            }
+
             await unitOfWork.Commit();
         }
         catch (Exception e)
