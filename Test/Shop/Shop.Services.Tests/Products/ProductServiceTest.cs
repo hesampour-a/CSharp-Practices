@@ -91,7 +91,7 @@ public class ProductServiceTest : BusinessIntegrationTest
             Id = product1.Id
         });
 
-        //actual.Should().NotContain(_ => _.Title == product2.Title); //ERR
+        actual.Should().NotContain(_ => _.Title =="Test Product2"); //ERR
     }
 
     [Fact]

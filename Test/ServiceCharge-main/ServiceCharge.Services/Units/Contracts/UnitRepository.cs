@@ -1,0 +1,9 @@
+﻿using ServiceCharge.Entities;
+
+namespace ServiceCharge.Services.Units.Contracts;
+
+public interface UnitRepository
+{
+    Unit? Find(int unitId);
+    void Delete(Unit unit);
+}
