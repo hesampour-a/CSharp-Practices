@@ -102,15 +102,15 @@ public class BlockQueryTests : BusinessIntegrationTest
     [Fact]
     public void GetAllWithFloors_gets_all_blocks_with_floors_properly()
     {
-        var block1 = CreateBlock();
+        var block1 = new BlockBuilder().Build();
         Save(block1);
         var floor1 = CreateFloor(block1.Id, "floor1");
         Save(floor1);
-
         var floor2 = CreateFloor(block1.Id, "floor2");
         Save(floor2);
         var block2 = CreateBlock("block2", 15);
         Save(block2);
+        
         var result = _sut.GetAllWithFloors();
 
         result.Should().HaveCount(2);
@@ -138,7 +138,6 @@ public class BlockQueryTests : BusinessIntegrationTest
                 }
             ]
         });
-
         result.Should().ContainEquivalentOf(new GetAllBlocksWithFloorsDto()
         {
             Name = block2.Name,
@@ -155,7 +154,7 @@ public class BlockQueryTests : BusinessIntegrationTest
         {
             Name = name,
             FloorCount = floorCount,
-            CreationDate = _dateTimeServiceMock.Object.NowUtc,
+            CreationDate = new DateTime(2021,1,1),
         };
     }
 

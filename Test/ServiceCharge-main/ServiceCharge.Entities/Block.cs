@@ -6,6 +6,7 @@ public class Block
     public int FloorCount { get; set; }
     public required string Name { get; set; }
     public DateTime CreationDate { get; set; }
+    public int Type { get; set; }
 
     public HashSet<Floor> Floors { get; set; } = [];
 }

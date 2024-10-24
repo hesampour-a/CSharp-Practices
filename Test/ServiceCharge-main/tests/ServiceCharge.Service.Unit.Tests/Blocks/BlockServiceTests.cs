@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using BuilderFactory;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using ServiceCharge.Entities;
@@ -12,16 +13,19 @@ namespace ServiceCharge.Service.Unit.Tests.Blocks;
 
 public class BlockServiceTests : BusinessIntegrationTest
 {
-    private readonly BlockService _sut;
+    private readonly BlockService _sut; 
     private readonly Mock<DateTimeService> _dateTimeServiceMock;
+    private readonly DateTime _fakeDateTime;
 
     public BlockServiceTests()
     {
         var repository = new EFBlockRepository(Context);
+        
         _dateTimeServiceMock = new Mock<DateTimeService>();
 
+        _fakeDateTime = new DateTime(2021, 1, 1);
         _dateTimeServiceMock.Setup(_ => _.NowUtc)
-            .Returns(new DateTime(2020, 1, 1));
+            .Returns(_fakeDateTime);
 
         var unitOfWork = new EfUnitOfWork(Context);
 
@@ -41,22 +45,22 @@ public class BlockServiceTests : BusinessIntegrationTest
         };
 
         var result = _sut.Add(dto);
-
+        
         var actual = ReadContext.Set<Block>().Single();
         actual.Should().BeEquivalentTo(new Block()
         {
             Name = dto.Name,
             FloorCount = dto.FloorCount,
-            CreationDate = new DateTime(2020, 1, 1),
+            CreationDate = _fakeDateTime,
             Floors = []
-        }, _ => _.Excluding(a => a.Id));
+        });
         result.Should().Be(actual.Id);
     }
 
     [Fact]
     public void Add_throw_exception_when_block_name_duplicated()
     {
-        var block = CreateBlock("name");
+        var block = BlockFactory.Create("name");
         Save(block);
         var dto = new AddBlockDto()
         {
@@ -99,24 +103,20 @@ public class BlockServiceTests : BusinessIntegrationTest
     [Fact]
     public void Update_update_block_properly()
     {
-        var block = CreateBlock();
+        var block = BlockFactory.Create();
         Save(block);
-        var block2 = CreateBlock("block2", 5);
+        var block2 = BlockFactory.Create("block2",5);
         Save(block2);
-
         var dto = new UpdateBlockDto()
         {
             Name = "Edited",
             FloorCount = 9
         };
         
-        
         _sut.Update(block.Id, dto);
-        
 
         var actual = ReadContext.Set<Block>()
             .ToList();
-
         actual.Should().ContainEquivalentOf(new Block()
         {
             Name = dto.Name,
@@ -124,7 +124,6 @@ public class BlockServiceTests : BusinessIntegrationTest
             CreationDate = _dateTimeServiceMock.Object.NowUtc,
             Id = block.Id
         });
-
         actual.Should().ContainEquivalentOf(new Block()
         {
             Name = block2.Name,
@@ -151,10 +150,17 @@ public class BlockServiceTests : BusinessIntegrationTest
     [Fact]
     public void Update_throw_exception_when_block_name_duplicated()
     {
-        var block1 = CreateBlock("block");
+        var block1 = new BlockBuilder()
+            .WithName("ali")
+            .WithFloorCount(12)
+            .Build();
         Save(block1);
+        var floor = Instance.From<Block>()
+            .SetProperty(_ => _.Name = "adf")
+            .SetProperty(_=>_.Type = 1)
+            .Build();
 
-        var block2 = CreateBlock("block2");
+        var block2 = BlockFactory.Create("block2");
         Save(block2);
 
         var dto = new UpdateBlockDto()
@@ -170,7 +176,7 @@ public class BlockServiceTests : BusinessIntegrationTest
     public void
         Update_throw_exception_when_new_floorCount_is_less_than_existing_floors_count()
     {
-        var block1 = CreateBlock("block1", 2);
+        var block1 = BlockFactory.Create(name:"1",floorCount:1);
         block1.Floors.Add(new Floor()
         {
             Name = "floor1",
@@ -191,17 +197,5 @@ public class BlockServiceTests : BusinessIntegrationTest
 
         var actual = () => _sut.Update(block1.Id, dto);
         actual.Should().ThrowExactly<BlockAlredyHasMoreFloorsExceptions>();
-    }
-    
-    
-
-    private Block CreateBlock(string name = "block name", int floorCount = 10)
-    {
-        return new Block()
-        {
-            Name = name,
-            CreationDate = _dateTimeServiceMock.Object.NowUtc,
-            FloorCount = floorCount
-        };
     }
 }

@@ -19,7 +19,8 @@ public class EFBlockRepository(EfDataContext context) : BlockRepository
 
     public Block? Find(int blockId)
     {
-        return context.Set<Block>().Include(_ => _.Floors)
+        return context.Set<Block>()
+            .Include(_ => _.Floors)
             .FirstOrDefault(_ => _.Id == blockId);
     }
 

@@ -40,4 +40,10 @@ public class UnitAppService(
         unitOfWork.Save();
         return unit.Id;
     }
+
+    public void AddRange(List<Unit> units)
+    {
+        unitRepository.AddRange(units);
+        unitOfWork.Save();
+    }
 }

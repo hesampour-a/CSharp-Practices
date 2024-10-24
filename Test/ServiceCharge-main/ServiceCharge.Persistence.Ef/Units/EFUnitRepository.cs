@@ -19,4 +19,9 @@ public class EFUnitRepository(EfDataContext context) : UnitRepository
     {
         context.Set<Unit>().Add(unit);
     }
+
+    public void AddRange(List<Unit> units)
+    {
+        context.Set<Unit>().AddRange(units);
+    }
 }

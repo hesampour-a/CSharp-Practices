@@ -1,4 +1,5 @@
-﻿using ServiceCharge.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ServiceCharge.Entities;
 using ServiceCharge.Services.Blocks.Contracts;
 using ServiceCharge.Services.Blocks.Contracts.Dtos;
 using ServiceCharge.Services.Floors.Contracts.Dtos;
@@ -17,15 +18,15 @@ public class EFBlockQuery(EfDataContext context) : BlockQuery
                     Name = _.Name,
                     FloorCount = _.FloorCount,
                     CreationDate = _.CreationDate,
-                    Floors = _.Floors.Any()
-                        ? _.Floors.Select(f => new GetAllFloorsDto()
+                    Floors = _.Floors
+                        .Select(f => new GetAllFloorsDto()
                         {
                             Id = f.Id,
                             Name = f.Name,
                             UnitCount = f.UnitCount,
                             BlockId = f.BlockId,
                         }).ToList()
-                        : new List<GetAllFloorsDto>()
+                        
                 }).SingleOrDefault();
     }
 
@@ -42,21 +43,20 @@ public class EFBlockQuery(EfDataContext context) : BlockQuery
 
     public List<GetAllBlocksWithFloorsDto> GetAllWithFloors()
     {
-        return context.Set<Block>().Select(_ => new GetAllBlocksWithFloorsDto()
+        return context.Set<Block>()
+            .Select(_ => new GetAllBlocksWithFloorsDto()
         {
             Name = _.Name,
             FloorCount = _.FloorCount,
             CreationDate = _.CreationDate,
             Id = _.Id,
-            Floors = _.Floors.Any()
-                ? _.Floors.Select(f => new GetAllFloorsDto()
+            Floors = _.Floors.Select(f => new GetAllFloorsDto()
                 {
                     Id = f.Id,
                     Name = f.Name,
                     UnitCount = f.UnitCount,
                     BlockId = f.BlockId,
                 }).ToList()
-                : new List<GetAllFloorsDto>()
         }).ToList();
     }
 }
