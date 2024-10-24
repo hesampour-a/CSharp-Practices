@@ -31,26 +31,11 @@ public class UnitServiceTests : BusinessIntegrationTest
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "Floor1");
         Save(floor1);
-        var unit1 = new Entities.Unit()
-        {
-            Name = "Unit1",
-            FloorId = floor1.Id,
-            IsActive = true
-        };
+        var unit1 = CreateUnit(floor1.Id, "Unit1");
         Save(unit1);
-        var unit2 = new Entities.Unit()
-        {
-            Name = "Unit2",
-            FloorId = floor1.Id,
-            IsActive = false
-        };
+        var unit2 = CreateUnit(floor1.Id, "Unit2");
         Save(unit2);
 
         _sut.Delete(unit1.Id);
@@ -83,6 +68,28 @@ public class UnitServiceTests : BusinessIntegrationTest
             Name = name,
             FloorCount = floorCount,
             CreationDate = _dateTimeServiceMock.Object.NowUtc,
+        };
+    }
+
+    private Floor CreateFloor(int blockId, string name = "Floor",
+        int unitCount = 2)
+    {
+        return new Floor()
+        {
+            Name = name,
+            UnitCount = unitCount,
+            BlockId = blockId,
+        };
+    }
+
+    private Entities.Unit CreateUnit(int floorId, string unitName = "unit",
+        bool isActive = true)
+    {
+        return new Entities.Unit()
+        {
+            Name = unitName,
+            IsActive = isActive,
+            FloorId = floorId,
         };
     }
 }

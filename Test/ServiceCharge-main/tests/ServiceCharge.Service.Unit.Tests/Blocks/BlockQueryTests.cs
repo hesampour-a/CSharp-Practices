@@ -70,7 +70,7 @@ public class BlockQueryTests : BusinessIntegrationTest
         //             BlockId = block1.Id
         //         }
         //     ]
-        // },_=>_.ExcludingMissingMembers()); //how to exclud Floors.Id
+        // },_=>_.Excluding()); //how to exclud Floors.Id
     }
 
     [Fact]
@@ -104,20 +104,10 @@ public class BlockQueryTests : BusinessIntegrationTest
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 5,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "floor1");
         Save(floor1);
 
-        var floor2 = new Floor()
-        {
-            Name = "Floor2",
-            UnitCount = 7,
-            BlockId = block1.Id,
-        };
+        var floor2 = CreateFloor(block1.Id, "floor2");
         Save(floor2);
         var block2 = CreateBlock("block2", 15);
         Save(block2);
@@ -158,7 +148,7 @@ public class BlockQueryTests : BusinessIntegrationTest
             Floors = []
         });
     }
-    
+
     private Block CreateBlock(string name = "block", int floorCount = 10)
     {
         return new Block()
@@ -166,6 +156,17 @@ public class BlockQueryTests : BusinessIntegrationTest
             Name = name,
             FloorCount = floorCount,
             CreationDate = _dateTimeServiceMock.Object.NowUtc,
+        };
+    }
+
+    private Floor CreateFloor(int blockId, string name = "Floor",
+        int unitCount = 2)
+    {
+        return new Floor()
+        {
+            Name = name,
+            UnitCount = unitCount,
+            BlockId = blockId,
         };
     }
 }

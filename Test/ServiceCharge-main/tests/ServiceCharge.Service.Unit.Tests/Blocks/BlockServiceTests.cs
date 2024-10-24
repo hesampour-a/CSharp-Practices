@@ -109,7 +109,10 @@ public class BlockServiceTests : BusinessIntegrationTest
             Name = "Edited",
             FloorCount = 9
         };
+        
+        
         _sut.Update(block.Id, dto);
+        
 
         var actual = ReadContext.Set<Block>()
             .ToList();

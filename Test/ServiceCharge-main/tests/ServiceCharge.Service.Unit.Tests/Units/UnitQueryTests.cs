@@ -28,47 +28,17 @@ public class UnitQueryTests : BusinessIntegrationTest
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "Floor1");
         Save(floor1);
-        var unit1 = new Entities.Unit()
-        {
-            Name = "Unit1",
-            FloorId = floor1.Id,
-            IsActive = true
-        };
+        var unit1 = CreateUnit(floor1.Id, "Unit1");
         Save(unit1);
-        var unit2 = new Entities.Unit()
-        {
-            Name = "Unit2",
-            FloorId = floor1.Id,
-            IsActive = false
-        };
+        var unit2 = CreateUnit(floor1.Id, "Unit2");
         Save(unit2);
-        var floor2 = new Floor()
-        {
-            Name = "Floor2",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor2 = CreateFloor(block1.Id, "Floor2");
         Save(floor2);
-        var unit3 = new Entities.Unit()
-        {
-            Name = "Unit3",
-            FloorId = floor2.Id,
-            IsActive = true
-        };
+        var unit3 = CreateUnit(floor2.Id, "Unit3");
         Save(unit3);
-        var unit4 = new Entities.Unit()
-        {
-            Name = "Unit4",
-            FloorId = floor2.Id,
-            IsActive = false
-        };
+        var unit4 = CreateUnit(floor2.Id, "Unit4");
         Save(unit4);
 
         var result = _sut.GetAllWithBlockNameAndFloorName();
@@ -117,8 +87,7 @@ public class UnitQueryTests : BusinessIntegrationTest
                 Id = unit4.Id
             });
     }
-    
-    
+
 
     private Block CreateBlock(string name = "Block1", int floorCount = 5)
     {
@@ -127,6 +96,28 @@ public class UnitQueryTests : BusinessIntegrationTest
             Name = name,
             FloorCount = floorCount,
             CreationDate = _dateTimeServiceMock.Object.NowUtc,
+        };
+    }
+
+    private Floor CreateFloor(int blockId, string name = "Floor",
+        int unitCount = 2)
+    {
+        return new Floor()
+        {
+            Name = name,
+            UnitCount = unitCount,
+            BlockId = blockId,
+        };
+    }
+
+    private Entities.Unit CreateUnit(int floorId, string unitName = "unit",
+        bool isActive = true)
+    {
+        return new Entities.Unit()
+        {
+            Name = unitName,
+            IsActive = isActive,
+            FloorId = floorId,
         };
     }
 }

@@ -70,19 +70,9 @@ public class FloorServiceTests : BusinessIntegrationTest
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id);
         Save(floor1);
-        var floor2 = new Floor()
-        {
-            Name = "Floor2",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor2 = CreateFloor(block1.Id);
         Save(floor2);
 
         var dto = new FloorAddDto
@@ -96,24 +86,15 @@ public class FloorServiceTests : BusinessIntegrationTest
         actual.Should().ThrowExactly<BlockIsInMaxFloorsCountNumberException>();
     }
 
+
     [Fact]
     public void Update_update_a_floor_properly()
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 4,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "Floor1");
         Save(floor1);
-        var floor2 = new Floor()
-        {
-            Name = "Floor2",
-            UnitCount = 4,
-            BlockId = block1.Id,
-        };
+        var floor2 = CreateFloor(block1.Id, "Floor2");
         Save(floor2);
 
         var dto = new FloorUpdateDto()
@@ -156,26 +137,11 @@ public class FloorServiceTests : BusinessIntegrationTest
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "Floor1");
         Save(floor1);
-        var unit1 = new Entities.Unit()
-        {
-            Name = "Unit1",
-            IsActive = true,
-            FloorId = floor1.Id,
-        };
+        var unit1 = CreateUnit(floor1.Id, "Unit1");
         Save(unit1);
-        var unit2 = new Entities.Unit()
-        {
-            Name = "Unit2",
-            IsActive = true,
-            FloorId = floor1.Id,
-        };
+        var unit2 = CreateUnit(floor1.Id, "Unit2");
         Save(unit2);
 
         var dto = new FloorUpdateDto()
@@ -189,24 +155,15 @@ public class FloorServiceTests : BusinessIntegrationTest
         actual.Should().ThrowExactly<FloorAlredyHasMoreUnitsException>();
     }
 
+
     [Fact]
     public void Delete_delete_a_floor_properly()
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "Floor1");
         Save(floor1);
-        var floor2 = new Floor()
-        {
-            Name = "Floor2",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor2 = CreateFloor(block1.Id, "Floor2");
         Save(floor2);
 
         _sut.Delete(floor2.Id);
@@ -237,19 +194,9 @@ public class FloorServiceTests : BusinessIntegrationTest
     {
         var block1 = CreateBlock();
         Save(block1);
-        var floor1 = new Floor()
-        {
-            Name = "Floor1",
-            UnitCount = 2,
-            BlockId = block1.Id,
-        };
+        var floor1 = CreateFloor(block1.Id, "Floor1");
         Save(floor1);
-        var unit1 = new Entities.Unit()
-        {
-            Name = "Unit1",
-            IsActive = true,
-            FloorId = floor1.Id,
-        };
+        var unit1 = CreateUnit(floor1.Id, "Unit1");
         Save(unit1);
 
 
@@ -265,6 +212,28 @@ public class FloorServiceTests : BusinessIntegrationTest
             Name = name,
             FloorCount = floorCount,
             CreationDate = _dateTimeServiceMock.Object.NowUtc,
+        };
+    }
+
+    private Floor CreateFloor(int blockId, string name = "Floor",
+        int unitCount = 2)
+    {
+        return new Floor()
+        {
+            Name = name,
+            UnitCount = unitCount,
+            BlockId = blockId,
+        };
+    }
+
+    private Entities.Unit CreateUnit(int floorId, string unitName = "unit",
+        bool isActive = true)
+    {
+        return new Entities.Unit()
+        {
+            Name = unitName,
+            IsActive = isActive,
+            FloorId = floorId,
         };
     }
 }
