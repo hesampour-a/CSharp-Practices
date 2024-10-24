@@ -1,9 +1,11 @@
 ﻿using FluentAssertions;
 using Moq;
 using ServiceCharge.Entities;
+using ServiceCharge.Persistence.Ef.Floors;
 using ServiceCharge.Persistence.Ef.UnitOfWorks;
 using ServiceCharge.Persistence.Ef.Units;
 using ServiceCharge.Services;
+using ServiceCharge.Services.Floors.Exceptions;
 using ServiceCharge.Services.Units;
 using ServiceCharge.Services.Units.Contracts;
 using ServiceCharge.Services.Units.Exceptions;
@@ -23,7 +25,8 @@ public class UnitServiceTests : BusinessIntegrationTest
 
         var unitRepository = new EFUnitRepository(Context);
         var unitOfWork = new EfUnitOfWork(Context);
-        _sut = new UnitAppService(unitRepository, unitOfWork);
+        var floorRepository = new EFFloorRepository(Context);
+        _sut = new UnitAppService(unitRepository, unitOfWork,floorRepository);
     }
 
     [Fact]
@@ -59,6 +62,68 @@ public class UnitServiceTests : BusinessIntegrationTest
         var actual = () => _sut.Delete(dummyId);
 
         actual.Should().ThrowExactly<UnitNotFoundException>();
+    }
+
+    [Fact]
+    public void Add_add_a_unit_properly()
+    {
+        var block1 = CreateBlock();
+        Save(block1);
+        var floor1 = CreateFloor(block1.Id, "Floor1");
+        Save(floor1);
+
+        var dto = new CreateUnitDto()
+        {
+            Name = "unit1",
+            IsActive = true,
+        };
+
+        var result = _sut.Add(floor1.Id, dto);
+
+        var actual = ReadContext.Set<Entities.Unit>().Single();
+
+        actual.Should().BeEquivalentTo(new Entities.Unit
+        {
+            Name = dto.Name,
+            IsActive = dto.IsActive,
+            FloorId = floor1.Id,
+            Id = result
+        });
+    }
+
+    [Fact]
+    public void Add_throws_exception_if_floor_does_not_exist()
+    {
+        var dummyId = -1;
+        var dto = new CreateUnitDto()
+        {
+            Name = "unit1",
+        };
+
+        var actual = () => _sut.Add(dummyId, dto);
+
+        actual.Should().ThrowExactly<FloorNotFoundException>();
+    }
+
+    [Fact]
+    public void Add_throws_exception_when_floor_has_max_number_of_units()
+    {
+        var block1 = CreateBlock();
+        Save(block1);
+        var floor1 = CreateFloor(block1.Id, "Floor1",1);
+        Save(floor1);
+        var unit1 = CreateUnit(floor1.Id, "Unit1");
+        Save(unit1);
+
+        var dto = new CreateUnitDto()
+        {
+            Name = "unit2",
+            IsActive = true,
+        };
+        
+        var actual = () => _sut.Add(floor1.Id, dto);
+        
+        actual.Should().ThrowExactly<FloorAlredyHasMoreUnitsException>();
     }
 
     private Block CreateBlock(string name = "Block1", int floorCount = 5)

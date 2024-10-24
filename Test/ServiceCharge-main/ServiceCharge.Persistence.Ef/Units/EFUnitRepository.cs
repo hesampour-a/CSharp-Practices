@@ -14,4 +14,9 @@ public class EFUnitRepository(EfDataContext context) : UnitRepository
     {
         context.Set<Unit>().Remove(unit);
     }
+
+    public void Add(Unit unit)
+    {
+        context.Set<Unit>().Add(unit);
+    }
 }
